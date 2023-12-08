@@ -41,7 +41,12 @@ function displayQuestions() {
         let option = document.createElement('label');
         option.textContent = opt;
         option.appendChild(document.createElement('br'));
+        option.addEventListener("click", () => {
+            compareAnswer(opt, currentQuestion.correctAnswer);
+        });
+        // optionsContainer.appendChild(optionElement);
         options.appendChild(option);
+
     });
 }
 
