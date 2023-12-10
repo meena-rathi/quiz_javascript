@@ -40,31 +40,41 @@ function displayQuestions() {
     currentQuestion.option.forEach((opt, index) => {
         let option = document.createElement('label');
         option.textContent = opt;
+        option.classList.add('option');
         option.appendChild(document.createElement('br'));
         option.addEventListener("click", () => {
             compareAnswer(opt, currentQuestion.correctAnswer);
         });
-        // optionsContainer.appendChild(optionElement);
         options.appendChild(option);
-
     });
 }
 
-function compareAnswer(userSelected, correctAnswer) {
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex >= question.length) {
+        currentQuestionIndex = 0;
+    }
+    displayQuestions();
+}
 
-    let option = document.getElementById('option');
-    Option.forEach(option => {
-        if (option.textContent === userSelected) {
-            if (userSelected === correctAnswer) {
-                option.style.background = 'green';
+function compareAnswer(userAnswer, correctAnswer) {
+    const options = document.querySelectorAll('.option');
+
+    options.forEach(option => {
+
+        if (option.textContent === userAnswer) {
+            if (userAnswer === correctAnswer) {
+                option.style.backgroundColor = 'blue';
+            } else {
+                option.style.backgroundColor = 'red';
             }
-            else {
-                option.style.background = 'brown';
-            }
+
+            // Disable click events after selecting an answer
+            options.forEach(opt => {
+                opt.removeEventListener('click', compareAnswer);
+                opt.style.pointerEvents = 'none';
+            });
         }
     });
-    if (correctAnswer === userSelected) {
-
-    }
-
+    nextQuestion();
 }
