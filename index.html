@@ -5,24 +5,36 @@
   </head>
   <link rel="stylesheet" href="assets/css/style.css" />
   <body>
-    <h1>Quiz Application</h1>
-    <div class="player-name">
-      <label for="inputname">Enter your name:</label>
-      <input type="text" id="inputname" required />
-      <input
-        type="button"
-        id="btn-start"
-        value="Start Quiz"
-        onclick="startQuiz()"
-      />
+    <div class="container">
+      <div class="center">
+        <h1>Quiz</h1>
+        <div class="player-name">
+          <label for="inputname">Enter your name:</label>
+          <input type="text" id="inputname" required />
+          <input
+            type="button"
+            id="btn-start"
+            value="Start Quiz"
+            onclick="startQuiz()"
+          />
+        </div>
+
+        <div id="playerNameDisplay"></div>
+        <div class="score-area">
+          <p class="scores">Correct Answers <span id="score">0</span></p>
+          <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+        </div>
+        <div id="question"></div>
+        <div id="options"></div>
+        <div class="display-area">
+          <button id="nextButton" onclick="nextQuestion()">Next</button>
+          <button onclick="perviousQuestion()">Pervious</button>
+        </div>
+        <button id="submitButton" style="display: none" onclick="submitQuiz()">
+          Submit
+        </button>
+        <script src="assets/js/script.js"></script>
+      </div>
     </div>
-    <h1>Question</h1>
-    <div id="playerNameDisplay"></div>
-    <div id="question"></div>
-    <div id="options"></div>
-
-    <button onclick="nextQuestion()">Next</button>
-
-    <script src="assets/js/script.js"></script>
   </body>
 </html>

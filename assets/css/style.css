@@ -1,3 +1,74 @@
 .score-area {
     display: none;
 }
+
+.display-area {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.player-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#btn-start {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.question {
+    width: 200px;
+    /* Adjust width as needed */
+    word-wrap: break-word;
+    /* Allow line breaks for long content */
+    border: 1px solid rgb(122, 8, 8);
+    /* Border around the question area */
+    padding: 10px;
+    background-color: brown;
+    /* Padding for better visual */
+}
+
+#options {
+    max-width: 200px;
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+#inputname {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.center {
+    text-align: center;
+    margin: 280px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+#score {
+    color: green;
+    font-weight: bold;
+
+}
+
+#incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+#playerNameDisplay {
+    font-size: 20px;
+    font-weight: bold;
+}
