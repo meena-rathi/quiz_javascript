@@ -17,28 +17,60 @@ body {
 }
 
 #btn-start {
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.score-area {
     font-size: 20px;
     font-weight: bold;
 }
 
-.question {
-    width: 200px;
-    /* Adjust width as needed */
-    word-wrap: break-word;
-    /* Allow line breaks for long content */
-    border: 1px solid rgb(122, 8, 8);
-    /* Border around the question area */
+#question {
+    /* border: 1px solid black; */
+    /* Add a black border */
     padding: 10px;
-    background-color: brown;
-    /* Padding for better visual */
+    /* background-color: lightgray; */
+    /* Set the background color to light gray */
+    color: black;
+    /* Set text color to black */
+    max-width: 300px;
+    word-wrap: break-word;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 #options {
-    max-width: 200px;
-    font-size: 20px;
+    margin-top: 20px;
+    /* border: 1px solid rgb(24, 23, 23);
+    padding: 10px;
+    background-color: rgb(168, 129, 129);
+    color: white; */
+    /* Set text color to white */
+    margin-bottom: 100px;
+    max-width: 300px;
+    word-wrap: break-word;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
 
-    font-weight: bold;
+.option {
+    border: 1px solid rgb(24, 23, 23);
 
+    background-color: rgb(168, 129, 129);
+    padding: 10px;
+    margin-top: 10px;
+    /* Add padding for better clickability */
+    width: 100%;
+    /* Set the width to 100% */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
 }
 
 #inputname {
@@ -55,6 +87,8 @@ body {
 .container {
     display: flex;
     justify-content: center;
+    /* width: 600px;
+    border: 1px solid #000; */
 }
 
 #score {

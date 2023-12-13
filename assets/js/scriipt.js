@@ -5,8 +5,18 @@ function startQuiz() {
 
     const playerInput = document.getElementById("inputname");
     playerInput.style.display = 'none';
-    const startButton = document.getElementById('btn-start');
+     const startButton = document.getElementById('btn-start');
+    
+    startButton.addEventListener('mouseover', () => {
+        startButton.style.backgroundColor = 'orange';
+    });
+
+    startButton.addEventListener('mouseout', () => {
+        startButton.style.backgroundColor = '';
+    });
+
     startButton.style.display = 'none';
+    
     const nameLabel = document.querySelector('label[for="inputname"]');
     nameLabel.style.display = 'none';
 
@@ -15,6 +25,7 @@ function startQuiz() {
     const displayArea = document.getElementsByClassName("display-area")[0];
     displayArea.style.display = 'block';
     displayQuestions();
+    
 }
 
 let question = [
@@ -58,8 +69,9 @@ function displayQuestions() {
 
     let questionArea = document.getElementById("question");
     questionArea.textContent = currentQuestion.question;
-    questionArea.style.border = '1px solid #000';
-    questionArea.style.padding = '10px';
+    // questionArea.style.border = '1px solid #000';
+    // questionArea.style.padding = '10px';
+    // questionArea.style.backgroundColor = 'brown';
     let options = document.getElementById("options");
     options.innerHTML = '';
 
@@ -67,25 +79,75 @@ function displayQuestions() {
         let option = document.createElement('label');
         option.textContent = opt;
         option.classList.add('option');
+        
+
+
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
         const isCorrect = currentQuestion.correctAnswer === opt;
-        option.style.color = '#ccc';
+        option.addEventListener('mouseover', () => {
+            if (selectedAnswers[currentQuestionIndex] !== opt) {
+                const userAnswer = option.textContent;
+                const isCorrect = currentQuestion.correctAnswer === userAnswer;
 
-        if (isSelected) {
-            option.style.backgroundColor = isCorrect ? 'blue' : 'red';
-        }
+                if (isCorrect) {
+                    option.style.backgroundColor = 'blue'; // Blue color on mouseover for correct answers
+                } else {
+                    option.style.backgroundColor = 'green'; // Green color on mouseover for incorrect answers
+                }
+            }
+        });
+
+        option.addEventListener('mouseout', () => {
+            if (selectedAnswers[currentQuestionIndex] !== opt) {
+                option.style.backgroundColor = ''; // Reset color on mouseout if not selected
+            }
+        });
+
         option.addEventListener("click", () => {
             compareAnswer(opt, currentQuestion.correctAnswer);
+            options.querySelectorAll('.option').forEach(item => {
+                item.style.backgroundColor = ''; // Reset all options' colors
+            });
+            option.style.backgroundColor = 'orange'; // Change color of selected answer
         });
+
         options.appendChild(option);
     });
+
     if (currentQuestionIndex === question.length - 1) {
         hideNextButton();
         showSubmitButton();
     }
 }
+//   option.addEventListener('mouseover', () => {
+//             const userAnswer = option.textContent;
+//             const isCorrect = currentQuestion.correctAnswer === userAnswer;
+
+//             if (isCorrect) {
+//                 option.style.backgroundColor = 'blue'; // Blue color on mouseover for correct answers
+//             } else {
+//                 option.style.backgroundColor = 'green'; // Green color on mouseover for incorrect answers
+//             }
+//         });
+
+//         option.addEventListener('mouseout', () => {
+//             option.style.backgroundColor = ''; // Reset color on mouseout
+//         });
+        // if (isSelected) {
+        //     option.style.backgroundColor = isCorrect ? 'blue' : 'red';
+        // }
+//         option.addEventListener("click", () => {
+//             compareAnswer(opt, currentQuestion.correctAnswer);
+//         });
+//         options.appendChild(option);
+//     });
+//     if (currentQuestionIndex === question.length - 1) {
+//         hideNextButton();
+//         showSubmitButton();
+//     }
+// }
 
 function nextQuestion() {
     currentQuestionIndex++;
