@@ -6,6 +6,10 @@
     display: none;
 }
 
+.display-question {
+    display: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -27,11 +31,11 @@ body {
 }
 
 #question {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     /* Add a black border */
     padding: 10px;
-    /* background-color: lightgray; */
-    /* Set the background color to light gray */
+    background-color: lightgray;
+
     color: black;
     /* Set text color to black */
     max-width: 300px;
@@ -41,6 +45,14 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+}
+
+.questions {
+    /* Add a black border */
+    padding: 10px;
+    background-color: lightgray;
+    /* Set the background color to light gray */
+
 }
 
 #options {

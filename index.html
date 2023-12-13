@@ -3,7 +3,7 @@
   <head>
     <title>Document</title>
   </head>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/stylel.css" />
   <body>
     <div class="container">
       <div class="center">
@@ -11,21 +11,22 @@
         <div class="player-name">
           <label for="inputname">Enter your name:</label>
           <input type="text" id="inputname" required />
-         
         </div>
- <input
-            type="button"
-            id="btn-start"
-            value="Start Quiz"
-            onclick="startQuiz()"
-          />
+        <input
+          type="button"
+          id="btn-start"
+          value="Start Quiz"
+          onclick="startQuiz()"
+        />
         <div id="playerNameDisplay"></div>
         <div class="score-area">
           <p class="scores">Correct Answers <span id="score">0</span></p>
           <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
         </div>
-        <div id="question"></div>
-        <div id="options"></div>
+        <div class="display-question">
+          <div id="question"></div>
+          <div id="options"></div>
+        </div>
         <div class="display-area">
           <button id="nextButton" onclick="nextQuestion()">Next</button>
           <button onclick="perviousQuestion()">Pervious</button>

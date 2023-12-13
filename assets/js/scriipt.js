@@ -1,22 +1,40 @@
+
+const startButton = document.getElementById('btn-start');
+
+startButton.addEventListener('mouseover', () => {
+    startButton.style.backgroundColor = 'orange';
+});
+
+startButton.addEventListener('mouseout', () => {
+    startButton.style.backgroundColor = ''; // Resets to default color on mouseout
+});
+
+
+
+
+
 function startQuiz() {
+    // const startButton = document.getElementById('btn-start');
+
+    // startButton.addEventListener('mouseover', () => {
+    //     startButton.style.backgroundColor = 'orange';
+    // });
+
+    // startButton.addEventListener('mouseout', () => {
+    //     startButton.style.backgroundColor = ''; // Resets to default color on mouseout
+    // });
+
+    startButton.style.display = 'none';
     let playerName = document.getElementById("inputname").value;
     let playerNameDisplay = document.getElementById("playerNameDisplay");
     playerNameDisplay.textContent = "Player Name: " + playerName;
 
     const playerInput = document.getElementById("inputname");
     playerInput.style.display = 'none';
-     const startButton = document.getElementById('btn-start');
-    
-    startButton.addEventListener('mouseover', () => {
-        startButton.style.backgroundColor = 'orange';
-    });
 
-    startButton.addEventListener('mouseout', () => {
-        startButton.style.backgroundColor = '';
-    });
 
-    startButton.style.display = 'none';
-    
+
+
     const nameLabel = document.querySelector('label[for="inputname"]');
     nameLabel.style.display = 'none';
 
@@ -24,8 +42,10 @@ function startQuiz() {
     scoreArea.style.display = 'block';
     const displayArea = document.getElementsByClassName("display-area")[0];
     displayArea.style.display = 'block';
+    const questions = document.getElementsByClassName("display-question")[0];
+    questions.style.display = 'block';
     displayQuestions();
-    
+
 }
 
 let question = [
@@ -69,6 +89,10 @@ function displayQuestions() {
 
     let questionArea = document.getElementById("question");
     questionArea.textContent = currentQuestion.question;
+    // let questions = document.createElement('label');
+
+    // questions.textContent = currentQuestion.question;
+    // questions.classList.add('questions');
     // questionArea.style.border = '1px solid #000';
     // questionArea.style.padding = '10px';
     // questionArea.style.backgroundColor = 'brown';
@@ -79,7 +103,7 @@ function displayQuestions() {
         let option = document.createElement('label');
         option.textContent = opt;
         option.classList.add('option');
-        
+
 
 
         option.appendChild(document.createElement('br'));
@@ -135,9 +159,9 @@ function displayQuestions() {
 //         option.addEventListener('mouseout', () => {
 //             option.style.backgroundColor = ''; // Reset color on mouseout
 //         });
-        // if (isSelected) {
-        //     option.style.backgroundColor = isCorrect ? 'blue' : 'red';
-        // }
+// if (isSelected) {
+//     option.style.backgroundColor = isCorrect ? 'blue' : 'red';
+// }
 //         option.addEventListener("click", () => {
 //             compareAnswer(opt, currentQuestion.correctAnswer);
 //         });
@@ -149,14 +173,73 @@ function displayQuestions() {
 //     }
 // }
 
+// function nextQuestion() {
+//     displayQuestions();
+//     const nextButton = document.getElementById('nextButton');
+
+//     nextButton.addEventListener('mouseover', () => {
+//         // Change the background color on mouseover
+//         nextButton.style.backgroundColor = 'orange';
+//     });
+
+//     nextButton.addEventListener('mouseout', () => {
+//         // Reset the background color on mouseout
+//         nextButton.style.backgroundColor = '';
+//     });
+
+//     currentQuestionIndex++;
+//     if (currentQuestionIndex >= question.length) {
+//         currentQuestionIndex = 0;
+//     }
+
+// }
+
+
+
+const nextButton = document.getElementById('nextButton');
+
+nextButton.addEventListener('mouseover', () => {
+    // Change the background color on mouseover
+    nextButton.style.backgroundColor = 'orange';
+});
+
+nextButton.addEventListener('mouseout', () => {
+    // Reset the background color on mouseout
+    nextButton.style.backgroundColor = '';
+});
+
 function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex >= question.length) {
-        currentQuestionIndex = 0;
+    if (currentQuestionIndex < question.length - 1) {
+        currentQuestionIndex++;
+        displayQuestions();
+    } else {
+        // Handle the case when all questions are done
+        // For instance, hide the next button or show results
+        hideNextButton();
+        showSubmitButton();
     }
-    displayQuestions();
 }
 
+
+// const nextButton = document.getElementById('nextButton');
+
+// nextButton.addEventListener('mouseover', () => {
+//     // Change the background color on mouseover
+//     nextButton.style.backgroundColor = 'orange';
+// });
+
+// nextButton.addEventListener('mouseout', () => {
+//     // Reset the background color on mouseout
+//     nextButton.style.backgroundColor = '';
+// });
+
+// function nextQuestion() {
+//     displayQuestions();
+//     currentQuestionIndex++;
+//     if (currentQuestionIndex >= question.length) {
+//         currentQuestionIndex = 0;
+//     }
+// }
 function perviousQuestion() {
     currentQuestionIndex--;
     if (currentQuestionIndex < 0) {
@@ -164,11 +247,15 @@ function perviousQuestion() {
     }
     displayQuestions();
 }
+
+/*Next Button*/
 function hideNextButton() {
 
     const hideButton = document.getElementById('nextButton');
     hideButton.style.display = 'none';
 }
+
+
 function showSubmitButton() {
     document.getElementById('submitButton').style.display = 'block';
 }
