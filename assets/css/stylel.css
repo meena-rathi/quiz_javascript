@@ -13,11 +13,13 @@
 body {
     margin: 0;
     padding: 0;
+    /* background-image: url('../images/background.jpg'); */
 }
 
 .player-name {
     font-size: 20px;
     font-weight: bold;
+    color: black;
 }
 
 #btn-start {
@@ -93,7 +95,7 @@ body {
 
 .center {
     text-align: center;
-    margin: 280px;
+    margin: 50px;
 }
 
 .container {

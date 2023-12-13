@@ -14,39 +14,41 @@ startButton.addEventListener('mouseout', () => {
 
 
 function startQuiz() {
-    // const startButton = document.getElementById('btn-start');
-
-    // startButton.addEventListener('mouseover', () => {
-    //     startButton.style.backgroundColor = 'orange';
-    // });
-
-    // startButton.addEventListener('mouseout', () => {
-    //     startButton.style.backgroundColor = ''; // Resets to default color on mouseout
-    // });
-
     startButton.style.display = 'none';
     let playerName = document.getElementById("inputname").value;
-    let playerNameDisplay = document.getElementById("playerNameDisplay");
-    playerNameDisplay.textContent = "Player Name: " + playerName;
+    let nameError = document.getElementById("nameError");
 
-    const playerInput = document.getElementById("inputname");
-    playerInput.style.display = 'none';
+    if (playerName === "") {
+
+        nameError.style.display = "block";
+        startButton.style.display = 'block';
+    } else {
+        let playerNameDisplay = document.getElementById("playerNameDisplay");
+        playerNameDisplay.textContent = "Player Name: " + playerName;
+
+        const playerInput = document.getElementById("inputname");
+        playerInput.style.display = 'none';
+
+        let nameError = document.getElementById("nameError");
+        nameError.style.display = 'none';
 
 
 
+        const nameLabel = document.querySelector('label[for="inputname"]');
+        nameLabel.style.display = 'none';
 
-    const nameLabel = document.querySelector('label[for="inputname"]');
-    nameLabel.style.display = 'none';
-
-    const scoreArea = document.getElementsByClassName("score-area")[0];
-    scoreArea.style.display = 'block';
-    const displayArea = document.getElementsByClassName("display-area")[0];
-    displayArea.style.display = 'block';
-    const questions = document.getElementsByClassName("display-question")[0];
-    questions.style.display = 'block';
-    displayQuestions();
-
+        const scoreArea = document.getElementsByClassName("score-area")[0];
+        scoreArea.style.display = 'block';
+        const displayArea = document.getElementsByClassName("display-area")[0];
+        displayArea.style.display = 'block';
+        const questions = document.getElementsByClassName("display-question")[0];
+        questions.style.display = 'block';
+        displayQuestions();
+    }
 }
+
+
+
 
 let question = [
     {
