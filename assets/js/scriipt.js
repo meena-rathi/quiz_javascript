@@ -9,10 +9,6 @@ startButton.addEventListener('mouseout', () => {
     startButton.style.backgroundColor = ''; // Resets to default color on mouseout
 });
 
-
-
-
-
 function startQuiz() {
     startButton.style.display = 'none';
     let playerName = document.getElementById("inputname").value;
@@ -32,8 +28,6 @@ function startQuiz() {
         let nameError = document.getElementById("nameError");
         nameError.style.display = 'none';
 
-
-
         const nameLabel = document.querySelector('label[for="inputname"]');
         nameLabel.style.display = 'none';
 
@@ -46,9 +40,6 @@ function startQuiz() {
         displayQuestions();
     }
 }
-
-
-
 
 let question = [
     {
@@ -85,19 +76,32 @@ let currentQuestionIndex = 0;
 let selectedAnswers = {};
 let lastUserAnswer = null;
 
+let timer; // Global variable to hold the timer reference
+const TIMER_DURATION = 10000; // Timer duration in milliseconds (10 seconds)
 
+function startTimer() {
+    let remaining_time = TIMER_DURATION / 1000;
+    const timerValue = document.getElementById('timerValue');
+    timerValue.textContent = remaining_time;
+
+    timer = setInterval(() => {
+        remaining_time--;
+        if (remaining_time >= 0) {
+            timerValue.textContent = remaining_time;
+        }
+        else {
+            clearInterval(timer);
+            nextQuestion();
+        }
+
+    }, 1000);
+}
 function displayQuestions() {
+    startTimer();
     const currentQuestion = question[currentQuestionIndex];
 
     let questionArea = document.getElementById("question");
     questionArea.textContent = currentQuestion.question;
-    // let questions = document.createElement('label');
-
-    // questions.textContent = currentQuestion.question;
-    // questions.classList.add('questions');
-    // questionArea.style.border = '1px solid #000';
-    // questionArea.style.padding = '10px';
-    // questionArea.style.backgroundColor = 'brown';
     let options = document.getElementById("options");
     options.innerHTML = '';
 
@@ -105,8 +109,6 @@ function displayQuestions() {
         let option = document.createElement('label');
         option.textContent = opt;
         option.classList.add('option');
-
-
 
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
@@ -147,55 +149,6 @@ function displayQuestions() {
         showSubmitButton();
     }
 }
-//   option.addEventListener('mouseover', () => {
-//             const userAnswer = option.textContent;
-//             const isCorrect = currentQuestion.correctAnswer === userAnswer;
-
-//             if (isCorrect) {
-//                 option.style.backgroundColor = 'blue'; // Blue color on mouseover for correct answers
-//             } else {
-//                 option.style.backgroundColor = 'green'; // Green color on mouseover for incorrect answers
-//             }
-//         });
-
-//         option.addEventListener('mouseout', () => {
-//             option.style.backgroundColor = ''; // Reset color on mouseout
-//         });
-// if (isSelected) {
-//     option.style.backgroundColor = isCorrect ? 'blue' : 'red';
-// }
-//         option.addEventListener("click", () => {
-//             compareAnswer(opt, currentQuestion.correctAnswer);
-//         });
-//         options.appendChild(option);
-//     });
-//     if (currentQuestionIndex === question.length - 1) {
-//         hideNextButton();
-//         showSubmitButton();
-//     }
-// }
-
-// function nextQuestion() {
-//     displayQuestions();
-//     const nextButton = document.getElementById('nextButton');
-
-//     nextButton.addEventListener('mouseover', () => {
-//         // Change the background color on mouseover
-//         nextButton.style.backgroundColor = 'orange';
-//     });
-
-//     nextButton.addEventListener('mouseout', () => {
-//         // Reset the background color on mouseout
-//         nextButton.style.backgroundColor = '';
-//     });
-
-//     currentQuestionIndex++;
-//     if (currentQuestionIndex >= question.length) {
-//         currentQuestionIndex = 0;
-//     }
-
-// }
-
 
 
 const nextButton = document.getElementById('nextButton');
@@ -223,32 +176,13 @@ function nextQuestion() {
 }
 
 
-// const nextButton = document.getElementById('nextButton');
-
-// nextButton.addEventListener('mouseover', () => {
-//     // Change the background color on mouseover
-//     nextButton.style.backgroundColor = 'orange';
-// });
-
-// nextButton.addEventListener('mouseout', () => {
-//     // Reset the background color on mouseout
-//     nextButton.style.backgroundColor = '';
-// });
-
-// function nextQuestion() {
-//     displayQuestions();
-//     currentQuestionIndex++;
-//     if (currentQuestionIndex >= question.length) {
-//         currentQuestionIndex = 0;
+// function perviousQuestion() {
+//     currentQuestionIndex--;
+//     if (currentQuestionIndex < 0) {
+//         currentQuestionIndex = question.length - 1;
 //     }
+//     displayQuestions();
 // }
-function perviousQuestion() {
-    currentQuestionIndex--;
-    if (currentQuestionIndex < 0) {
-        currentQuestionIndex = question.length - 1;
-    }
-    displayQuestions();
-}
 
 /*Next Button*/
 function hideNextButton() {
@@ -263,6 +197,7 @@ function showSubmitButton() {
 }
 
 function compareAnswer(userAnswer, correctAnswer) {
+    clearTimeout(timer);
     const selectedAnswer = selectedAnswers[currentQuestionIndex];
 
     if (selectedAnswer === userAnswer) {
@@ -294,13 +229,6 @@ function compareAnswer(userAnswer, correctAnswer) {
                 selectedAnswers[currentQuestionIndex] = userAnswer;
                 incrementWrongAnswer();
             }
-
-            // options.forEach(option => {
-            //     if (option.textContent === userAnswer) {
-            //         const isCorrect = userAnswer === correctAnswer;
-            //         option.style.backgroundColor = isCorrect ? 'blue' : 'red';
-            //         selectedAnswers[currentQuestionIndex] = userAnswer;
-            //     }
             // Disable click events after selecting an answer
             options.forEach(opt => {
                 opt.removeEventListener('click', compareAnswer);
@@ -309,13 +237,6 @@ function compareAnswer(userAnswer, correctAnswer) {
         }
     });
 }
-
-// function incrementScore() {
-
-//     let oldScore = parseInt(document.getElementById("score").innerText);
-//     document.getElementById("score").innerText = ++oldScore;
-
-// }
 
 function incrementScore() {
     correctCounter++;

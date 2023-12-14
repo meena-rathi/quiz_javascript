@@ -1,31 +1,105 @@
-.score-area {
-    display: none;
-}
-
-.display-area {
-    display: none;
-}
-
-.display-question {
-    display: none;
-}
-
 body {
     margin: 0;
     padding: 0;
     /* background-image: url('../images/background.jpg'); */
 }
 
-.player-name {
-    font-size: 20px;
+.container {
+    /* border: 5px solid;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    height: 580px;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px; */
+    border: 5px solid;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /* Change to column layout */
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    height: 580px;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#inputname {
     font-weight: bold;
-    color: black;
+    border: 2px solid black;
+    padding: 5px;
+    /* margin-top: 280px; */
+    margin-top: 20px;
 }
 
 #btn-start {
-    font-size: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    /* margin-bottom: 100px;
+    position: fixed; */
+    margin-top: 20px;
+}
+
+
+.player-name {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.score-area {
+    display: none;
+}
+
+.display-area {
+    display: none;
+
+}
+
+#nextButton {
+    font-size: 20px;
+    background-color: aqua;
+}
+
+.display-question {
+    display: none;
+}
+
+
+
+
+
+.timer {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+/* #btn-start {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 60px;
+    position: fixed;
+} */
 
 .score-area {
     font-size: 20px;
@@ -68,6 +142,7 @@ body {
     max-width: 300px;
     word-wrap: break-word;
     margin: auto;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,6 +154,7 @@ body {
 
     background-color: rgb(168, 129, 129);
     padding: 10px;
+    font-size: 20px;
     margin-top: 10px;
     /* Add padding for better clickability */
     width: 100%;
@@ -87,23 +163,14 @@ body {
     /* Include padding in width calculation */
 }
 
-#inputname {
-    font-weight: bold;
-    border: 1px solid black;
-    padding: 5px;
-}
 
-.center {
+
+/* .center {
     text-align: center;
-    margin: 50px;
-}
+    margin: -20px;
+} */
 
-.container {
-    display: flex;
-    justify-content: center;
-    /* width: 600px;
-    border: 1px solid #000; */
-}
+
 
 #score {
     color: green;

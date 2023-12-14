@@ -3,42 +3,45 @@
   <head>
     <title>Document</title>
   </head>
-  <link rel="stylesheet" href="assets/css/stylel.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <body>
     <div class="container">
-      <div class="center">
-        <h1>Quiz</h1>
-        <div class="player-name">
-          <label for="inputname">Enter your name:</label>
-          <input type="text" id="inputname" />
-          <span id="nameError" style="color: red; display: none"
-            >Name field is required</span
-          >
-        </div>
-        <input
-          type="button"
-          id="btn-start"
-          value="Start Quiz"
-          onclick="startQuiz()"
-        />
-        <div id="playerNameDisplay"></div>
-        <div class="score-area">
-          <p class="scores">Correct Answers <span id="score">0</span></p>
-          <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
-        </div>
-        <div class="display-question">
-          <div id="question"></div>
-          <div id="options"></div>
-        </div>
-        <div class="display-area">
-          <button id="nextButton" onclick="nextQuestion()">Next</button>
-          <button onclick="perviousQuestion()">Pervious</button>
-        </div>
-        <button id="submitButton" style="display: none" onclick="submitQuiz()">
-          Submit
-        </button>
-        <script src="assets/js/scriipt.js"></script>
+      <h1>Quiz</h1>
+
+      <div class="player-name">
+        <label for="inputname">Enter your name:</label>
+
+        <input type="text" id="inputname" />
+            <span id="nameError" style="color: red; display: none">Name field is required</span>
       </div>
+      <input
+        type="button"
+        id="btn-start"
+        value="Start Quiz"
+        onclick="startQuiz()"
+      />
+      <div id="playerNameDisplay"></div>
+      <div class="score-area">
+        <p class="scores">Correct Answers <span id="score">0</span></p>
+        <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+      </div>
+      <div class="display-question">
+        <div id="question"></div>
+        <div id="options"></div>
+      </div>
+      <div class="timer-container">
+        <div id="timerDisplay" class="timer">
+          Time: <span id="timerValue">10</span>
+        </div>
+      </div>
+      <div class="display-area">
+        <button id="nextButton" onclick="nextQuestion()">Next</button>
+        <!-- <button onclick="perviousQuestion()">Previous</button> -->
+      </div>
+      <button id="submitButton" style="display: none" onclick="submitQuiz()">
+        Submit
+      </button>
     </div>
+    <script src="assets/js/scriipt.js"></script>
   </body>
 </html>
