@@ -1,5 +1,6 @@
 
 Purpose of the project
+
 The purpose of my project is to create a basic quiz app. This quiz contain math and english question.
 
 User Story
@@ -7,10 +8,12 @@ I, as a user,
 
 
 Feature
+
 StartQuiz: UserName is mandortary before start the quiz.
 Option: User can select the any 1 option on the behalf of the question.
-NextButton: is apperaing the next and so on.
-Submit Button: when the quiz quiz ended user click onthe submit result should be appear.
+NextButton: is apperaing the next question and so on.
+Timer: Each contain 10 seconds, after 10 seconds next will be appear.
+Submit Button: when the quiz ended user click on the submit button result should be appear.
 
 Typography and colorscheme
 
@@ -28,10 +31,13 @@ Technologies
 HTML
 
 I used html to develop the basic structure.
+Javascript
+
+
+JavaScript is utilized to add interactivity and dynamic behavior to web pages.
 CSS
 
 I used CSS for stling of the Project.
-
 Github
 
 I used to store the code.

@@ -1,10 +1,28 @@
 body {
+
     margin: 0;
     padding: 0;
-    /* background-image: url('../images/background.jpg'); */
+    background-image: url("../images/quizimage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-position: center center; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/quizimage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+} */
+
 .container {
+
     /* border: 5px solid;
     position: absolute;
     display: flex;
@@ -15,7 +33,7 @@ body {
     width: 50%;
     transform: translate(-50%, -50%);
     padding: 10px; */
-    border: 5px solid;
+    /* border: 5px solid green; */
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -23,6 +41,7 @@ body {
     align-items: center;
     /* Center items horizontally */
     justify-content: center;
+    width: 100%;
     top: 50%;
     left: 50%;
     height: 580px;
@@ -32,15 +51,35 @@ body {
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #ac2424;
+}
+
+.heading {
+    display: block;
+}
+
+.paragraph {
+    word-wrap: break-word;
+    display: block;
+    font-size: 20px;
+    width: 500px;
+    color: #ffffff;
 }
 
 #inputname {
     font-weight: bold;
-    border: 2px solid black;
+    border: 2px solid #ac2424;
+    ;
     padding: 5px;
     /* margin-top: 280px; */
     margin-top: 20px;
+}
+
+#playerNameDisplay {
+    color: #ffffff;
 }
 
 #btn-start {
@@ -48,19 +87,20 @@ h1 {
     font-weight: bold;
     /* margin-bottom: 100px;
     position: fixed; */
+    background-color: #ac2424;
     margin-top: 20px;
 }
-
 
 .player-name {
     margin-bottom: 10px;
     font-weight: bold;
     font-size: 20px;
+    color: #ffffff;
 }
 
-.score-area {
+/* .score-area {
     display: none;
-}
+} */
 
 .display-area {
     display: none;
@@ -76,15 +116,16 @@ h1 {
     display: none;
 }
 
-
-
-
+.timer-container {
+    display: none;
+}
 
 .timer {
     position: absolute;
     top: 15px;
     right: 15px;
     font-size: 20px;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -100,16 +141,40 @@ h1 {
     margin-top: 60px;
     position: fixed;
 } */
+/* #score {
+    color: green;
+    font-weight: bold;
 
+}
+
+#incorrect {
+    color: red;
+    font-weight: bold;
+} */
 .score-area {
+    display: none;
     font-size: 20px;
     font-weight: bold;
+    color: #ffffff;
+    /* display: flex; */
+    justify-content: space-around;
+}
+
+scores {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#score,
+#incorrect {
+    margin-left: 10px;
+    /* Add spacing between the count and the label */
 }
 
 #question {
     border: 1px solid black;
     /* Add a black border */
-    padding: 10px;
+    padding: 20px;
     background-color: lightgray;
 
     color: black;
@@ -125,14 +190,14 @@ h1 {
 
 .questions {
     /* Add a black border */
-    padding: 10px;
+    padding: 20px;
     background-color: lightgray;
     /* Set the background color to light gray */
 
 }
 
 #options {
-    margin-top: 20px;
+    margin-top: 1px;
     /* border: 1px solid rgb(24, 23, 23);
     padding: 10px;
     background-color: rgb(168, 129, 129);
@@ -155,7 +220,7 @@ h1 {
     background-color: rgb(168, 129, 129);
     padding: 10px;
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 1px;
     /* Add padding for better clickability */
     width: 100%;
     /* Set the width to 100% */
@@ -172,18 +237,25 @@ h1 {
 
 
 
-#score {
-    color: green;
-    font-weight: bold;
 
-}
-
-#incorrect {
-    color: red;
-    font-weight: bold;
-}
 
 #playerNameDisplay {
     font-size: 20px;
     font-weight: bold;
+}
+
+
+
+/*mobile*/
+@media (max-width: 767px) {
+    body {
+        background-size: cover;
+    }
+}
+
+/* For iPad or tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        background-size: 100% 100%;
+    }
 }

@@ -1,4 +1,3 @@
-
 const startButton = document.getElementById('btn-start');
 
 startButton.addEventListener('mouseover', () => {
@@ -15,7 +14,6 @@ function startQuiz() {
     let nameError = document.getElementById("nameError");
 
     if (playerName === "") {
-
         nameError.style.display = "block";
         startButton.style.display = 'block';
     } else {
@@ -32,40 +30,48 @@ function startQuiz() {
         nameLabel.style.display = 'none';
 
         const scoreArea = document.getElementsByClassName("score-area")[0];
-        scoreArea.style.display = 'block';
+        scoreArea.style.display = 'flex';
         const displayArea = document.getElementsByClassName("display-area")[0];
         displayArea.style.display = 'block';
+        const paragraph = document.getElementsByClassName("paragraph")[0];
+        paragraph.style.display = 'none';
         const questions = document.getElementsByClassName("display-question")[0];
         questions.style.display = 'block';
+
+        const timercontainer = document.getElementsByClassName("timer-container")[0];
+        timercontainer.style.display = 'block';
+
+        const heading = document.getElementsByClassName("heading")[0];
+        heading.style.display = 'none';
         displayQuestions();
     }
 }
 
 let question = [
     {
-        question: "In the CSS box model, which property defines the space between an element's content and its border?",
-        option: ['Eight', 'Four', 'Six', 'Ten'],
-        correctAnswer: 'Eight'
+        question: "What is the size of char variable?",
+        option: ['16 bit', '8 bit', '48 bit', '32 bit'],
+        correctAnswer: '16 bit'
     },
     {
-        question: "2+2?",
-        option: ['4', '6', '8', '12'],
-        correctAnswer: '4'
+        question: "How do you insert COMMENTS in Java code?",
+        option: ['#This is a comment  ', '// This is a comment', '!-- This is a comment  ', '/* This is a comment'],
+        correctAnswer: '// This is a comment'
     },
     {
-        question: "10+10?",
-        option: ['4', '6', '8', '20'],
-        correctAnswer: '20'
+        question: "Which data type is used to create a variable that should store text?",
+        option: ['String', 'string', 'myString', 'Strings'],
+        correctAnswer: 'String'
     },
     {
-        question: "2+10?",
-        option: ['4', '6', '8', '12'],
-        correctAnswer: '12'
+        question: "How do you create a variable with the numeric value 5?",
+        option: ['float x = 5;', 'num x = 5', 'x=5;', 'int x = 5;'],
+        correctAnswer: 'int x = 5;'
     },
     {
-        question: "10-5?",
-        option: ['5', '10', '8', '12'],
-        correctAnswer: '5'
+        question: "Which operator is used to add together two values?",
+        option: ['The & sign', 'The * sign', 'The + sign', 'The ++ sign'],
+        correctAnswer: 'The + sign'
     },
 ];
 
@@ -88,14 +94,20 @@ function startTimer() {
         remaining_time--;
         if (remaining_time >= 0) {
             timerValue.textContent = remaining_time;
-        }
-        else {
-            clearInterval(timer);
-            nextQuestion();
-        }
 
+        } else {
+            clearInterval(timer);
+            if (currentQuestionIndex === question.length - 1) {
+                finishQuiz();
+
+            } else {
+                nextQuestion();
+            }
+            disableOptionClicks();
+        }
     }, 1000);
 }
+
 function displayQuestions() {
     startTimer();
     const currentQuestion = question[currentQuestionIndex];
@@ -150,7 +162,6 @@ function displayQuestions() {
     }
 }
 
-
 const nextButton = document.getElementById('nextButton');
 
 nextButton.addEventListener('mouseover', () => {
@@ -165,6 +176,7 @@ nextButton.addEventListener('mouseout', () => {
 
 function nextQuestion() {
     if (currentQuestionIndex < question.length - 1) {
+        clearInterval(timer);
         currentQuestionIndex++;
         displayQuestions();
     } else {
@@ -175,22 +187,10 @@ function nextQuestion() {
     }
 }
 
-
-// function perviousQuestion() {
-//     currentQuestionIndex--;
-//     if (currentQuestionIndex < 0) {
-//         currentQuestionIndex = question.length - 1;
-//     }
-//     displayQuestions();
-// }
-
-/*Next Button*/
 function hideNextButton() {
-
     const hideButton = document.getElementById('nextButton');
     hideButton.style.display = 'none';
 }
-
 
 function showSubmitButton() {
     document.getElementById('submitButton').style.display = 'block';
@@ -198,23 +198,6 @@ function showSubmitButton() {
 
 function compareAnswer(userAnswer, correctAnswer) {
     clearTimeout(timer);
-    const selectedAnswer = selectedAnswers[currentQuestionIndex];
-
-    if (selectedAnswer === userAnswer) {
-        toggleAnswerCorrectness(userAnswer, correctAnswer);
-    } else {
-        if (lastUserAnswer === userAnswer) {
-            toggleAnswerCorrectness(selectedAnswer, correctAnswer);
-            toggleAnswerCorrectness(userAnswer, correctAnswer);
-        } else {
-            toggleAnswerCorrectness(userAnswer, correctAnswer);
-        }
-    }
-
-    // disableClickEvents();
-}
-
-function compareAnswer(userAnswer, correctAnswer) {
     const options = document.querySelectorAll('.option');
 
     options.forEach(option => {
@@ -238,20 +221,24 @@ function compareAnswer(userAnswer, correctAnswer) {
     });
 }
 
+function disableOptionClicks() {
+    const options = document.querySelectorAll('.option');
+
+    options.forEach(option => {
+        option.removeEventListener('click', () => { }); // Remove click event listener
+        option.style.pointerEvents = 'none'; // Disable pointer events for the options
+    });
+}
+
 function incrementScore() {
     correctCounter++;
     // Update the display
     document.getElementById("score").innerText = correctCounter;
 }
 
-/**
- * Gets the current tally of incorrect answers from the DOM and increments it by 1
- */
 function incrementWrongAnswer() {
-
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
-
 }
 
 function calculateScorePercentage() {
@@ -261,7 +248,59 @@ function calculateScorePercentage() {
     return percentage.toFixed(2); // Returns a percentage value with two decimal places
 }
 
+function finishQuiz() {
+    const finalScore = calculateScorePercentage();
+    const scorePercentage = parseFloat(finalScore);
+
+    let message;
+    if (scorePercentage >= 70) {
+        message = `Congratulations! Well done on completing the quiz with a score of ${finalScore}%`;
+    } else {
+        message = `Good effort! You scored ${finalScore}% in the quiz.`;
+    }
+
+    // Display the congratulatory message or any final actions here (e.g., showing score, hiding buttons, etc.)
+    alert(message);
+
+    // Hide the question area and the submit button after showing the message
+    const questionArea = document.getElementById("question");
+    questionArea.style.display = 'none';
+
+    const submitButton = document.getElementById("submitButton");
+    submitButton.style.display = 'none';
+    const option = document.getElementById("options");
+    option.style.display = 'none';
+
+    // Display correct and incorrect answers along with the congratulatory message
+    const scoreDisplay = document.getElementsByClassName("score-area")[0];
+    scoreDisplay.style.display = 'block';
+    finishQuiz = function () { };
+}
+
 function submitQuiz() {
-    const scorePercentage = calculateScorePercentage();
-    alert(`Your score: ${scorePercentage}%`);
+    const finalScore = calculateScorePercentage();
+    const scorePercentage = parseFloat(finalScore);
+    const questionArea = document.getElementById("question");
+    questionArea.style.display = 'none';
+    const submitButton = document.getElementById("submitButton");
+    submitButton.style.display = 'none';
+
+    const option = document.getElementById("options");
+    option.style.display = 'none';
+
+    // Display correct and incorrect answers along with the final message
+    const scoreDisplay = document.getElementsByClassName("score-area")[0];
+    scoreDisplay.style.display = 'block';
+    let message;
+    if (scorePercentage >= 70) {
+        message = `Congratulations! Well done on completing the quiz with a score of ${finalScore}%`;
+    } else {
+        message = `Good effort! You scored ${finalScore}% in the quiz.`;
+    }
+
+    // Display the final message after submitting the quiz
+    alert(message);
+
+    // Hide the question area and the submit button after showing the message
+    clearInterval(timer); // Stop the timer
 }
