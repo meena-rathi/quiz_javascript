@@ -248,7 +248,6 @@ function compareAnswer(userAnswer, correctAnswer) {
 
 function disableOptionClicks() {
     let options = document.querySelectorAll('.option');
-
     options.forEach(option => {
         option.removeEventListener('click', () => { }); // Remove click event listener
         option.style.pointerEvents = 'none'; // Disable pointer events for the options

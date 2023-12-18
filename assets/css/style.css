@@ -109,6 +109,7 @@ h1 {
 
 #nextButton {
     font-size: 20px;
+    width: 100px;
     background-color: aqua;
 }
 
@@ -134,11 +135,9 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 60px;
-    color: #ffffff;
-    /* display: flex; */
     margin-right: 20px;
-
     justify-content: space-between;
+    color: #ffffff;
 }
 
 .scores {
@@ -161,66 +160,52 @@ h1 {
 
 #question {
     border: 1px solid black;
+    margin-bottom: 1px;
     /* Add a black border */
     padding: 20px;
     background-color: lightgray;
-
     color: black;
     /* Set text color to black */
-    max-width: 300px;
+    max-width: 400px;
     word-wrap: break-word;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
 }
 
 .questions {
-    /* Add a black border */
     padding: 20px;
+    /* Adjusted margin-top for 10px space */
+    /* margin-bottom: -200px; */
     background-color: lightgray;
-    /* Set the background color to light gray */
-
 }
 
 #options {
-    margin-top: 1px;
-    /* border: 1px solid rgb(24, 23, 23);
-    padding: 10px;
-    background-color: rgb(168, 129, 129);
-    color: white; */
-    /* Set text color to white */
-    margin-bottom: 100px;
-    max-width: 300px;
+    max-width: 400px;
     word-wrap: break-word;
-    margin: auto;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-bottom: 50px; */
+    margin-bottom: 5px;
 }
 
 .option {
     border: 1px solid rgb(24, 23, 23);
-
     background-color: rgb(168, 129, 129);
-    padding: 10px;
+    padding: 1px;
     font-size: 20px;
-    margin-top: 1px;
-    /* Add padding for better clickability */
+    margin-top: 5px;
+    margin-bottom: 5px;
     width: 100%;
-    /* Set the width to 100% */
     box-sizing: border-box;
-    /* Include padding in width calculation */
 }
 
 #submitButton {
     font-size: 20px;
     font-weight: bold;
-    /* margin-bottom: 100px;
-    position: fixed; */
+    width: 100px;
     background-color: #ac2424;
     margin-top: 20px;
 }
