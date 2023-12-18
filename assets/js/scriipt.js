@@ -64,6 +64,18 @@ function onStartBtnMouseOut() {
 }
 
 
+const nextButton = document.getElementById('nextButton');
+
+function onNextBtnMouseOver() {
+    nextButton.style.backgroundColor = 'orange';
+}
+function onNextBtnMouseOut() {
+    nextButton.style.backgroundColor = '';
+}
+
+
+
+
 
 
 /**
@@ -74,6 +86,8 @@ function onStartBtnMouseOut() {
 function initializeGame() {
     startButton.addEventListener('mouseover', onStartBtnMouseOver);
     startButton.addEventListener('mouseout', onStartBtnMouseOut);
+    nextButton.addEventListener('mouseover', onNextBtnMouseOver);
+    nextButton.addEventListener('mouseout', onNextBtnMouseOut);
 
 }
 
@@ -123,7 +137,7 @@ function startTimer() {
     const timerValue = document.getElementById('timerValue');
     timerValue.textContent = remaining_time;
 
-    timer = setInterval(() => {
+    timer = setInterval(function () {
         remaining_time--;
         if (remaining_time >= 0) {
             timerValue.textContent = remaining_time;
@@ -140,7 +154,6 @@ function startTimer() {
         }
     }, 1000);
 }
-
 function displayQuestions() {
     startTimer();
     const currentQuestion = question[currentQuestionIndex];
@@ -150,27 +163,32 @@ function displayQuestions() {
     let options = document.getElementById("options");
     options.innerHTML = '';
 
-    currentQuestion.option.forEach((opt, index) => {
+    for (let index = 0; index < currentQuestion.option.length; index++) {
+        let opt = currentQuestion.option[index];
+
         let option = document.createElement('label');
         option.textContent = opt;
         option.classList.add('option');
 
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
+
         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
         const isCorrect = currentQuestion.correctAnswer === opt;
 
-
-        option.addEventListener("click", () => {
+        option.addEventListener("click", function () {
             compareAnswer(opt, currentQuestion.correctAnswer);
-            options.querySelectorAll('.option').forEach(item => {
-                item.style.backgroundColor = ''; // Reset all options' colors
-            });
+
+            let allOptions = options.querySelectorAll('.option');
+            for (let i = 0; i < allOptions.length; i++) {
+                allOptions[i].style.backgroundColor = ''; // Reset all options' colors
+            }
+
             option.style.backgroundColor = 'orange'; // Change color of selected answer
         });
 
         options.appendChild(option);
-    });
+    }
 
     if (currentQuestionIndex === question.length - 1) {
         hideNextButton();
@@ -178,17 +196,6 @@ function displayQuestions() {
     }
 }
 
-const nextButton = document.getElementById('nextButton');
-
-nextButton.addEventListener('mouseover', () => {
-    // Change the background color on mouseover
-    nextButton.style.backgroundColor = 'orange';
-});
-
-nextButton.addEventListener('mouseout', () => {
-    // Reset the background color on mouseout
-    nextButton.style.backgroundColor = '';
-});
 
 function nextQuestion() {
     if (currentQuestionIndex < question.length - 1) {
@@ -216,7 +223,8 @@ function compareAnswer(userAnswer, correctAnswer) {
     clearTimeout(timer);
     const options = document.querySelectorAll('.option');
 
-    options.forEach(option => {
+    for (let i = 0; i < options.length; i++) {
+        const option = options[i];
 
         if (option.textContent === userAnswer) {
             if (userAnswer === correctAnswer) {
@@ -228,13 +236,14 @@ function compareAnswer(userAnswer, correctAnswer) {
                 selectedAnswers[currentQuestionIndex] = userAnswer;
                 incrementWrongAnswer();
             }
+
             // Disable click events after selecting an answer
-            options.forEach(opt => {
-                opt.removeEventListener('click', compareAnswer);
-                opt.style.pointerEvents = 'none';
-            });
+            for (let j = 0; j < options.length; j++) {
+                options[j].removeEventListener('click', compareAnswer);
+                options[j].style.pointerEvents = 'none';
+            }
         }
-    });
+    }
 }
 
 function disableOptionClicks() {
@@ -304,7 +313,7 @@ function submitQuiz() {
     } else {
         message = `Good effort! You scored ${finalScore}% in the quiz.`;
     }
-
+    clearInterval(timer);
     // Display the final message after submitting the quiz
     showModal(message);
 
