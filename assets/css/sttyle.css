@@ -111,6 +111,7 @@ h1 {
     font-size: 20px;
     width: 100px;
     background-color: aqua;
+    margin-top: 60px;
 }
 
 .display-question {
@@ -130,14 +131,16 @@ h1 {
     font-weight: bold;
 }
 
-.score-area {
+/* .score-area {
     display: none;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 60px;
+    margin-bottom: -100px;
     margin-right: 20px;
     justify-content: space-between;
     color: #ffffff;
+    position: relative;
+    z-index: 1;
 }
 
 .scores {
@@ -161,14 +164,12 @@ h1 {
 #question {
     border: 1px solid black;
     margin-bottom: 1px;
-    /* Add a black border */
     padding: 20px;
     background-color: lightgray;
     color: black;
-    /* Set text color to black */
+    margin-top: -100px;
     max-width: 400px;
     word-wrap: break-word;
-    /* margin: auto; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,8 +177,6 @@ h1 {
 
 .questions {
     padding: 20px;
-    /* Adjusted margin-top for 10px space */
-    /* margin-bottom: -200px; */
     background-color: lightgray;
 }
 
@@ -210,14 +209,89 @@ h1 {
     margin-top: 20px;
 }
 
-/* .center {
-    text-align: center;
-    margin: -20px;
+#playerNameDisplay {
+    font-size: 20px;
+    font-weight: bold;
 } */
+.score-area {
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* Adjust as needed */
+    margin-right: 20px;
+    justify-content: space-between;
+    color: #ffffff;
+}
 
+.scores {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
 
+#score {
+    color: green;
+    font-weight: bold;
+    margin-left: 5px;
+}
 
+#incorrect {
+    color: red;
+    margin-left: 5px;
+    font-weight: bold;
+}
 
+#question {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    /* Adjust as needed */
+    padding: 20px;
+    background-color: lightgray;
+    color: black;
+    max-width: 400px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.questions {
+    padding: 20px;
+    margin-bottom: 15px;
+    /* Adjust as needed */
+    background-color: lightgray;
+}
+
+#options {
+    max-width: 400px;
+    word-wrap: break-word;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option {
+    border: 1px solid rgb(24, 23, 23);
+    background-color: rgb(168, 129, 129);
+    /* padding: 5px; */
+    /* Adjust as needed */
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    /* Adjusted to 0 */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#submitButton {
+    font-size: 20px;
+    font-weight: bold;
+    width: 100px;
+    background-color: #ac2424;
+    margin-top: 60px;
+}
 
 #playerNameDisplay {
     font-size: 20px;
