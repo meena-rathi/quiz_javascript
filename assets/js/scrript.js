@@ -1,12 +1,81 @@
-const startButton = document.getElementById('btn-start');
+/**
+GLOBAL Constants - const
+Global variable. - let
+functions
 
-startButton.addEventListener('mouseover', () => {
+document.addEventListener("DOMContentLoaded", initializeGame);
+
+
+**/
+
+let startButton = document.getElementById('btn-start');
+let question = [
+    {
+        question: "What is the size of char variable?",
+        option: ['16 bit', '8 bit', '48 bit', '32 bit'],
+        correctAnswer: '16 bit'
+    },
+    {
+        question: "How do you insert COMMENTS in Java code?",
+        option: ['#This is a comment  ', '// This is a comment', '!-- This is a comment  ', '/* This is a comment'],
+        correctAnswer: '// This is a comment'
+    },
+    {
+        question: "Which data type is used to create a variable that should store text?",
+        option: ['String', 'string', 'myString', 'Strings'],
+        correctAnswer: 'String'
+    },
+    {
+        question: "How do you create a variable with the numeric value 5?",
+        option: ['float x = 5;', 'num x = 5', 'x=5;', 'int x = 5;'],
+        correctAnswer: 'int x = 5;'
+    },
+    {
+        question: "Which operator is used to add together two values?",
+        option: ['The & sign', 'The * sign', 'The + sign', 'The ++ sign'],
+        correctAnswer: 'The + sign'
+    },
+];
+
+
+let correctCounter = 0;
+let wrongCounter = 0;
+let currentQuestionIndex = 0;
+let selectedAnswers = {};
+let lastUserAnswer = null;
+
+let timer; // Global variable to hold the timer reference
+const TIMER_DURATION = 10000; // Timer duration in milliseconds (10 seconds)
+
+
+
+
+/**
+ * Multiple lines of JSDoc text are written here,
+ * wrapped normally.
+ * @param {number} arg A number to do something to.
+ */
+function onStartBtnMouseOver() {
     startButton.style.backgroundColor = 'orange';
-});
+}
 
-startButton.addEventListener('mouseout', () => {
+function onStartBtnMouseOut() {
     startButton.style.backgroundColor = ''; // Resets to default color on mouseout
-});
+}
+
+
+
+
+/**
+ * Multiple lines of JSDoc text are written here,
+ * wrapped normally.
+ * @param {number} arg A number to do something to.
+ */
+function initializeGame() {
+    startButton.addEventListener('mouseover', onStartBtnMouseOver);
+    startButton.addEventListener('mouseout', onStartBtnMouseOut);
+
+}
 
 function startQuiz() {
     startButton.style.display = 'none';
@@ -47,43 +116,7 @@ function startQuiz() {
     }
 }
 
-let question = [
-    {
-        question: "What is the size of char variable?",
-        option: ['16 bit', '8 bit', '48 bit', '32 bit'],
-        correctAnswer: '16 bit'
-    },
-    {
-        question: "How do you insert COMMENTS in Java code?",
-        option: ['#This is a comment  ', '// This is a comment', '!-- This is a comment  ', '/* This is a comment'],
-        correctAnswer: '// This is a comment'
-    },
-    {
-        question: "Which data type is used to create a variable that should store text?",
-        option: ['String', 'string', 'myString', 'Strings'],
-        correctAnswer: 'String'
-    },
-    {
-        question: "How do you create a variable with the numeric value 5?",
-        option: ['float x = 5;', 'num x = 5', 'x=5;', 'int x = 5;'],
-        correctAnswer: 'int x = 5;'
-    },
-    {
-        question: "Which operator is used to add together two values?",
-        option: ['The & sign', 'The * sign', 'The + sign', 'The ++ sign'],
-        correctAnswer: 'The + sign'
-    },
-];
 
-
-let correctCounter = 0;
-let wrongCounter = 0;
-let currentQuestionIndex = 0;
-let selectedAnswers = {};
-let lastUserAnswer = null;
-
-let timer; // Global variable to hold the timer reference
-const TIMER_DURATION = 10000; // Timer duration in milliseconds (10 seconds)
 
 function startTimer() {
     let remaining_time = TIMER_DURATION / 1000;
@@ -126,24 +159,7 @@ function displayQuestions() {
         option.appendChild(document.createElement('br'));
         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
         const isCorrect = currentQuestion.correctAnswer === opt;
-        option.addEventListener('mouseover', () => {
-            if (selectedAnswers[currentQuestionIndex] !== opt) {
-                const userAnswer = option.textContent;
-                const isCorrect = currentQuestion.correctAnswer === userAnswer;
 
-                if (isCorrect) {
-                    option.style.backgroundColor = 'blue'; // Blue color on mouseover for correct answers
-                } else {
-                    option.style.backgroundColor = 'green'; // Green color on mouseover for incorrect answers
-                }
-            }
-        });
-
-        option.addEventListener('mouseout', () => {
-            if (selectedAnswers[currentQuestionIndex] !== opt) {
-                option.style.backgroundColor = ''; // Reset color on mouseout if not selected
-            }
-        });
 
         option.addEventListener("click", () => {
             compareAnswer(opt, currentQuestion.correctAnswer);
@@ -222,7 +238,7 @@ function compareAnswer(userAnswer, correctAnswer) {
 }
 
 function disableOptionClicks() {
-    const options = document.querySelectorAll('.option');
+    let options = document.querySelectorAll('.option');
 
     options.forEach(option => {
         option.removeEventListener('click', () => { }); // Remove click event listener
@@ -260,7 +276,7 @@ function finishQuiz() {
     }
 
     // Display the congratulatory message or any final actions here (e.g., showing score, hiding buttons, etc.)
-    alert(message);
+    showModal(message);
 
     // Hide the question area and the submit button after showing the message
     const questionArea = document.getElementById("question");
@@ -271,26 +287,17 @@ function finishQuiz() {
     const option = document.getElementById("options");
     option.style.display = 'none';
 
-    // Display correct and incorrect answers along with the congratulatory message
-    const scoreDisplay = document.getElementsByClassName("score-area")[0];
-    scoreDisplay.style.display = 'block';
+    let playerNameDisplay = document.getElementById("playerNameDisplay");
+    playerNameDisplay.style.display = 'none';
+    let scoreArea = document.getElementsByClassName("score-area")[0];
+    scoreArea.style.display = 'none';
     finishQuiz = function () { };
 }
 
 function submitQuiz() {
     const finalScore = calculateScorePercentage();
     const scorePercentage = parseFloat(finalScore);
-    const questionArea = document.getElementById("question");
-    questionArea.style.display = 'none';
-    const submitButton = document.getElementById("submitButton");
-    submitButton.style.display = 'none';
 
-    const option = document.getElementById("options");
-    option.style.display = 'none';
-
-    // Display correct and incorrect answers along with the final message
-    const scoreDisplay = document.getElementsByClassName("score-area")[0];
-    scoreDisplay.style.display = 'block';
     let message;
     if (scorePercentage >= 70) {
         message = `Congratulations! Well done on completing the quiz with a score of ${finalScore}%`;
@@ -299,8 +306,57 @@ function submitQuiz() {
     }
 
     // Display the final message after submitting the quiz
-    alert(message);
+    showModal(message);
+
+    const questionArea = document.getElementById("question");
+    questionArea.style.display = 'none';
+
+    const submitButton = document.getElementById("submitButton");
+    submitButton.style.display = 'none';
+    const option = document.getElementById("options");
+    option.style.display = 'none';
+
+    let playerNameDisplay = document.getElementById("playerNameDisplay");
+    playerNameDisplay.style.display = 'none';
+    let scoreArea = document.getElementsByClassName("score-area")[0];
+    scoreArea.style.display = 'none';
 
     // Hide the question area and the submit button after showing the message
     clearInterval(timer); // Stop the timer
 }
+function showModal(message) {
+    const modal = document.getElementById('modal');
+    const modalMessage = document.getElementById('modal-message');
+    modalMessage.innerHTML = message;
+
+    const playerName = document.getElementById("playerNameDisplay").textContent;
+    const score = document.getElementById("score").textContent;
+    const incorrect = document.getElementById("incorrect").textContent;
+
+    const playerInfo = `<p>${playerName}</p>
+                        <p>Correct Answers: ${score}</p>
+                        <p>Incorrect Answers: ${incorrect}</p>`;
+
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.innerHTML += playerInfo;
+
+    modal.style.display = 'block';
+    const scoreDisplay = document.getElementsByClassName("score-area")[0];
+    scoreDisplay.style.display = 'block';
+
+    // Close the modal when the user clicks on the close button (x)
+    const closeBtn = document.querySelector('.close');
+    closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // Close the modal if the user clicks outside the modal content
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", initializeGame);

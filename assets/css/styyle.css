@@ -129,46 +129,34 @@ h1 {
     font-weight: bold;
 }
 
-
-
-
-
-
-
-/* #btn-start {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 60px;
-    position: fixed;
-} */
-/* #score {
-    color: green;
-    font-weight: bold;
-
-}
-
-#incorrect {
-    color: red;
-    font-weight: bold;
-} */
 .score-area {
     display: none;
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 60px;
     color: #ffffff;
     /* display: flex; */
-    justify-content: space-around;
+    margin-right: 20px;
+
+    justify-content: space-between;
 }
 
-scores {
+.scores {
     font-size: 20px;
     font-weight: bold;
+    margin-left: 20px;
 }
 
-#score,
+#score {
+    color: green;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
 #incorrect {
-    margin-left: 10px;
-    /* Add spacing between the count and the label */
+    color: red;
+    margin-left: 5px;
+    font-weight: bold;
 }
 
 #question {
@@ -185,7 +173,7 @@ scores {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .questions {
@@ -211,7 +199,7 @@ scores {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .option {
@@ -251,13 +239,74 @@ scores {
     font-weight: bold;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /*mobile*/
 @media (max-width: 767px) {
-    body {
+    /* body {
         background-size: cover;
+    } */
+
+    h1 {
+        font-size: 30px;
+        /* Adjust the font size of h1 for smaller screens */
     }
+
+    .paragraph {
+        font-size: 16px;
+        /* Adjust the font size of paragraphs for smaller screens */
+        width: 90%;
+        /* Adjust the width for smaller screens */
+    }
+
+    .scores {
+        font-size: 16px;
+        /* Adjust the font size for scores */
+        margin-bottom: 30px;
+        /* Adjust the margin between scores */
+    }
+
+    .option {
+        font-size: 16px;
+        /* Adjust the font size of options */
+        padding: 8px;
+        /* Adjust the padding for better clickability */
+    }
+
+    /* Add other adjustments for smaller screens */
 }
 
 /* For iPad or tablets */
