@@ -97,6 +97,11 @@ The color scheme for text is primarily green and gray.
 5. Fixed css.
 6. Fix Javascript
 
+# Supported Screen and browser #
+1. The website is compatible with all devices.
+
+![Screen](readme/responsive.JPG)
+
 # Deployment #
 **Github**
 
