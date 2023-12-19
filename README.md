@@ -28,30 +28,54 @@ I, as a user,
 
 # Typography and colorscheme #
 
-Font Family:
+## Font Family: ##
+
 The 'Lato' font family, a sans-serif typeface, has been selected for use across the quiz project.
 Font Colors:
 The color scheme for text is primarily green and gray.
 
 
 
-Wireframe
+# Wireframe #
+
+# Technologies #
+
+## HTML ##
+
+1. I used html to develop the basic structure.
+## Javascript ## 
+
+1. JavaScript is utilized to add interactivity and dynamic behavior to web pages.
+## CSS ##
+
+1. I used CSS for stling of the Project.
+## Github ##
+
+1. I used to store the code.
+## CodeAnyWhere ##
+
+1. I used codeanywhere to develop the website.
+
+# Testing #
+
+## Code Validation ##
+1. No errors in CSS and Html File.
 
 
-Technologies
-HTML
-
-I used html to develop the basic structure.
-Javascript
 
 
-JavaScript is utilized to add interactivity and dynamic behavior to web pages.
-CSS
+# Deployment #
+## Github ##
 
-I used CSS for stling of the Project.
-Github
+Locate the GitHub repository you need.
+Click the down arrow on the "Code" button.
+Copy the link provided in the dropdown.
+Open your preferred code editor (like Codeanywhere) and select the directory for the clone.
+In the terminal, use the command 'git clone' and paste the copied GitHub link.
+Press 'Enter' to create a local clone of the repository in your chosen directory.
+## Github Pages ##
 
-I used to store the code.
-CodeAnyWhere
-
-I used codeanywhere to develop the website.
+Open your GitHub account and go to the "Settings" tab of your repository.
+Choose the "Pages" section, select the main branch, and set the root directory.
+Once configured, the page will automatically refresh, displaying the deployment URL.
+https://meena-rathi.github.io/quiz_javascript/
