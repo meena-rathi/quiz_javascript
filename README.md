@@ -61,8 +61,37 @@ The color scheme for text is primarily green and gray.
 **Code Validation**
 1. No errors in CSS and Html File.
 
+## Testing ##
 
+## Test cases ##
+**Test Case: 1**
+1. Click on the https://meena-rathi.github.io/quiz_javascript/.
+2. Enter the Player name.
+3. The name is required
+4. And click on the start quiz.
+5. Browser : chrome
+6. Actual result : The page should be redireted to the question app.
+7. Excepted result : It should be shows the quetsions.
+8. Status : pass
 
+**Test Case: 2**
+
+1. Click on the https://meena-rathi.github.io/quiz_javascript/.
+2. 
+3. The name is required
+4. And click on the start quiz.
+5. Browser : chrome
+6. Actual result : The page should be redireted to the question app.
+7. Excepted result : It should be shows the quetsions.
+8. Status : pass
+
+# Fixed Bugs #
+1. Fix submit button for all devices.
+2. Set timer for each questions.
+3. Submit buttonfix result pop appear.
+4. Fixed Images Attributes.
+5. Fixed css.
+6. Fix Javascript
 
 # Deployment #
 **Github**
