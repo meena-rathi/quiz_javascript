@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", initializeGame);
 **/
 
 let startButton = document.getElementById('btn-start');
-let question = [
+const question = [
     {
         question: "What is the size of char variable?",
         option: ['16 bit', '8 bit', '48 bit', '32 bit'],
@@ -33,18 +33,15 @@ let question = [
         correctAnswer: 'The + sign'
     },
 ];
-
-
-let correctCounter = 0;
-let wrongCounter = 0;
 let currentQuestionIndex = 0;
 let selectedAnswers = {};
-let lastUserAnswer = null;
+let correctCounter = 0;
+
 
 let timer;
 const TIMER_DURATION = 10000;
 /**
- * Multiple lines of JSDoc text are written here,
+ * This function is changing color mouserout and mouseover event,
  * wrapped normally.
  * @param {number} arg A number to do something to.
  */
@@ -76,7 +73,6 @@ function initializeGame() {
     startButton.addEventListener('mouseout', onStartBtnMouseOut);
     nextButton.addEventListener('mouseover', onNextBtnMouseOver);
     nextButton.addEventListener('mouseout', onNextBtnMouseOut);
-
 }
 
 function startQuiz() {
@@ -117,9 +113,6 @@ function startQuiz() {
         displayQuestions();
     }
 }
-
-
-
 function startTimer() {
     let remaining_time = TIMER_DURATION / 1000;
     const timerValue = document.getElementById('timerValue');
@@ -145,7 +138,6 @@ function startTimer() {
 function displayQuestions() {
     startTimer();
     const currentQuestion = question[currentQuestionIndex];
-
     let questionArea = document.getElementById("question");
     questionArea.textContent = currentQuestion.question;
     let options = document.getElementById("options");
@@ -169,10 +161,10 @@ function displayQuestions() {
 
             let allOptions = options.querySelectorAll('.option');
             for (let i = 0; i < allOptions.length; i++) {
-                allOptions[i].style.backgroundColor = ''; // Reset all options' colors
+                allOptions[i].style.backgroundColor = '';
             }
 
-            option.style.backgroundColor = 'orange'; // Change color of selected answer
+            option.style.backgroundColor = 'orange';
         });
 
         options.appendChild(option);
@@ -191,8 +183,6 @@ function nextQuestion() {
         currentQuestionIndex++;
         displayQuestions();
     } else {
-        // Handle the case when all questions are done
-        // For instance, hide the next button or show results
         hideNextButton();
         showSubmitButton();
     }
@@ -224,8 +214,6 @@ function compareAnswer(userAnswer, correctAnswer) {
                 selectedAnswers[currentQuestionIndex] = userAnswer;
                 incrementWrongAnswer();
             }
-
-            // Disable click events after selecting an answer
             for (let j = 0; j < options.length; j++) {
                 options[j].removeEventListener('click', compareAnswer);
                 options[j].style.pointerEvents = 'none';
@@ -244,7 +232,6 @@ function disableOptionClicks() {
 
 function incrementScore() {
     correctCounter++;
-    // Update the display
     document.getElementById("score").innerText = correctCounter;
 }
 
@@ -257,7 +244,7 @@ function calculateScorePercentage() {
     const totalQuestions = question.length;
     const correctAnswers = correctCounter;
     const percentage = (correctAnswers / totalQuestions) * 100;
-    return percentage.toFixed(2); // Returns a percentage value with two decimal places
+    return percentage.toFixed(2);
 }
 
 function finishQuiz() {
@@ -270,11 +257,7 @@ function finishQuiz() {
     } else {
         message = `Good effort! You scored ${finalScore}% in the quiz.`;
     }
-
-    // Display the congratulatory message or any final actions here (e.g., showing score, hiding buttons, etc.)
     showModal(message);
-
-    // Hide the question area and the submit button after showing the message
     const questionArea = document.getElementById("question");
     questionArea.style.display = 'none';
 
@@ -301,7 +284,6 @@ function submitQuiz() {
         message = `Good effort! You scored ${finalScore}% in the quiz.`;
     }
     clearInterval(timer);
-    // Display the final message after submitting the quiz
     showModal(message);
 
     const questionArea = document.getElementById("question");
@@ -316,9 +298,7 @@ function submitQuiz() {
     playerNameDisplay.style.display = 'none';
     let scoreArea = document.getElementsByClassName("score-area")[0];
     scoreArea.style.display = 'none';
-
-    // Hide the question area and the submit button after showing the message
-    clearInterval(timer); // Stop the timer
+    clearInterval(timer);
 }
 function showModal(message) {
     const modal = document.getElementById('modal');
@@ -339,8 +319,6 @@ function showModal(message) {
     modal.style.display = 'block';
     const scoreDisplay = document.getElementsByClassName("score-area")[0];
     scoreDisplay.style.display = 'block';
-
-    // Close the modal when the user clicks on the close button (x)
     const closeBtn = document.querySelector('.close');
     closeBtn.addEventListener('click', function () {
         modal.style.display = 'none';
@@ -351,8 +329,7 @@ function showModal(message) {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
+
     });
 }
-
-
 document.addEventListener("DOMContentLoaded", initializeGame);
