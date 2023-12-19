@@ -1,21 +1,28 @@
 
-Purpose of the project
+# Purpose of the project #
 
 The purpose of my project is to create a basic quiz app. This quiz contain math and english question.
 
-User Story
+# User Story #
+
+## home ##
 I, as a user, 
 
 
-Feature
+# Feature #
 
-StartQuiz: UserName is mandortary before start the quiz.
-Option: User can select the any 1 option on the behalf of the question.
-NextButton: is apperaing the next question and so on.
-Timer: Each contain 10 seconds, after 10 seconds next will be appear.
-Submit Button: when the quiz ended user click on the submit button result should be appear.
+## home ##
 
-Typography and colorscheme
+1. StartQuiz: UserName is mandortary before start the quiz.
+2. Option: User can select the any 1 option on the behalf of the question.
+3. NextButton: is apperaing the next question and so on.
+4. Timer: Each question contain 10 seconds, after 10 seconds next will be appear.
+5. Submit: Button: When the quiz end user click on the submit button result should be appear.
+6. Timer: When the timer ended in last result pop-up automatically appear.
+
+![home](../readme/quiz.JPG)
+
+# Typography and colorscheme #
 
 Font Family:
 The 'Lato' font family, a sans-serif typeface, has been selected for use across the quiz project.
