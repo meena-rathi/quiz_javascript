@@ -20,7 +20,11 @@ I, as a user,
 5. Submit: Button: When the quiz end user click on the submit button result should be appear.
 6. Timer: When the timer ended in last result pop-up automatically appear.
 
-![home](readme/quiz.JPG)
+![Home](readme/quiz.JPG)
+
+![Question](readme/questions.JPG)
+
+![Result](readme/result.JPG)
 
 # Typography and colorscheme #
 
