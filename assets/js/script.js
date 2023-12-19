@@ -2,10 +2,7 @@
 GLOBAL Constants - const
 Global variable. - let
 functions
-
 document.addEventListener("DOMContentLoaded", initializeGame);
-
-
 **/
 
 let startButton = document.getElementById('btn-start');
@@ -44,12 +41,8 @@ let currentQuestionIndex = 0;
 let selectedAnswers = {};
 let lastUserAnswer = null;
 
-let timer; // Global variable to hold the timer reference
-const TIMER_DURATION = 10000; // Timer duration in milliseconds (10 seconds)
-
-
-
-
+let timer;
+const TIMER_DURATION = 10000;
 /**
  * Multiple lines of JSDoc text are written here,
  * wrapped normally.
@@ -60,7 +53,7 @@ function onStartBtnMouseOver() {
 }
 
 function onStartBtnMouseOut() {
-    startButton.style.backgroundColor = ''; // Resets to default color on mouseout
+    startButton.style.backgroundColor = '';
 }
 
 
@@ -72,11 +65,6 @@ function onNextBtnMouseOver() {
 function onNextBtnMouseOut() {
     nextButton.style.backgroundColor = '';
 }
-
-
-
-
-
 
 /**
  * Multiple lines of JSDoc text are written here,
@@ -249,8 +237,8 @@ function compareAnswer(userAnswer, correctAnswer) {
 function disableOptionClicks() {
     let options = document.querySelectorAll('.option');
     options.forEach(option => {
-        option.removeEventListener('click', () => { }); // Remove click event listener
-        option.style.pointerEvents = 'none'; // Disable pointer events for the options
+        option.removeEventListener('click', () => { });
+        option.style.pointerEvents = 'none';
     });
 }
 

@@ -72,7 +72,6 @@ h1 {
 #inputname {
     font-weight: bold;
     border: 2px solid #ac2424;
-    ;
     padding: 5px;
     /* margin-top: 280px; */
     margin-top: 20px;
@@ -85,8 +84,6 @@ h1 {
 #btn-start {
     font-size: 20px;
     font-weight: bold;
-    /* margin-bottom: 100px;
-    position: fixed; */
     background-color: #ac2424;
     margin-top: 20px;
 }
@@ -109,8 +106,9 @@ h1 {
 
 #nextButton {
     font-size: 20px;
+    font-weight: bold;
     width: 100px;
-    background-color: aqua;
+    background-color: #ac2424;
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -295,11 +293,14 @@ h1 {
 }
 
 #submitButton {
+
     font-size: 20px;
-    font-weight: bold;
     width: 100px;
     background-color: #ac2424;
-    margin-top: 40px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-weight: bold;
 }
 
 /* 
@@ -317,14 +318,13 @@ h1 {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #ac2424;
     width: 80%;
     max-width: 600px;
 }
@@ -351,6 +351,8 @@ h1 {
 
     h1 {
         font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 60px;
     }
 
     .paragraph {
@@ -370,6 +372,7 @@ h1 {
 
     #inputname {
         margin-top: 10px;
+        width: 140px;
     }
 
     #btn-start,
@@ -442,5 +445,103 @@ h1 {
         background-size: 100% 100%;
     }
 
-    /* Additional styling for iPads or tablets if needed */
+    h1 {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .paragraph {
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .scores,
+    .option,
+    .player-name,
+    #inputname,
+    #btn-start,
+    #submitButton,
+    #nextButton {
+        font-size: 20px;
+    }
+
+    #inputname {
+        margin-top: 10px;
+    }
+
+    #btn-start,
+    #submitButton,
+    #nextButton {
+        width: 120px;
+        padding: 10px;
+        margin-top: 80px;
+    }
+
+    #playerNameDisplay {
+        font-size: 20px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        left: -50px;
+    }
+
+    .score-area {
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-right: 10px;
+        top: 10px;
+        right: 10px;
+        position: absolute;
+    }
+
+    .questions {
+        max-width: 400px;
+        font-size: 22px;
+        padding: 8px;
+    }
+
+    .timer {
+        top: 15px;
+        right: -40px;
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: bold;
+        position: absolute;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 200px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-self: center;
+
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 450px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        align-self: center;
+
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+    }
 }
