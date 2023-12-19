@@ -81,12 +81,12 @@ The color scheme for text is primarily green and gray.
 **Test Case: 2**
 
 1. Click on the https://meena-rathi.github.io/quiz_javascript/.
-2. 
-3. The name is required
-4. And click on the start quiz.
+2. Select the any one option as per question and then next.
+3. After 10 seconds next question will appear.
+4. And the click on the submit button.
 5. Browser : chrome
-6. Actual result : The page should be redireted to the question app.
-7. Excepted result : It should be shows the quetsions.
+6. Actual result : The result pop Upshould be appear.
+7. Excepted result : It should be appear result Pop Up.
 8. Status : pass
 
 # Fixed Bugs #
