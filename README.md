@@ -1,12 +1,12 @@
 
 # Purpose of the project #
 
-The purpose of my project is to create a basic quiz app. This quiz contain math and english question.
+The purpose of my project is to create a basic quiz app. This quiz contains the basic programming question Eac question has 10 second time after 10 10 new question will appear. if the the user has select the option with 10 second, the he need to click on the next button for next questions. after submitting the quiz result pop will appear.
 
 # User Story #
 
 ## home ##
-I, as a user, 
+I, as a user, to start the quiz, eash question conian
 
 
 # Feature #
@@ -18,7 +18,7 @@ I, as a user,
 3. NextButton: is apperaing the next question and so on.
 4. Timer: Each question contain 10 seconds, after 10 seconds next will be appear.
 5. Submit: Button: When the quiz end user click on the submit button result should be appear.
-6. Timer: When the timer ended in last result pop-up automatically appear.
+6. Timer: When the timer ended in last question result pop-up automatically appear.
 
 ![Home](readme-doc/quiz.JPG)
 
@@ -32,7 +32,7 @@ I, as a user,
 
 The 'Lato' font family, a sans-serif typeface, has been selected for use across the quiz project.
 Font Colors:
-The color scheme for text is primarily green and gray.
+The color scheme for text is primarily orange, red, gray and white.
 
 # Wireframe #
 
@@ -41,7 +41,6 @@ The color scheme for text is primarily green and gray.
 ![Question](readme-doc/Question.JPG)
 
 ![Result](readme-doc/Resultt.JPG)
-
 
 # Technologies #
 
@@ -73,8 +72,8 @@ The color scheme for text is primarily green and gray.
 <https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmeena-rathi.github.io%2Fquiz_javascript%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en>
 
 
-
 ## Test cases ##
+
 **Test Case: 1**
 1. Click on the https://meena-rathi.github.io/quiz_javascript/.
 2. Enter the Player name.
@@ -106,7 +105,7 @@ The color scheme for text is primarily green and gray.
 # Supported Screen and browser #
 1. The website is compatible with all devices.
 
-![Screen](readme/responsive.JPG)
+![Screen](readme-doc/responsive.JPG)
 
 # Deployment #
 **Github**
@@ -124,3 +123,10 @@ The color scheme for text is primarily green and gray.
 2. Choose the "Pages" section, select the main branch, and set the root directory.
 3. Once configured, the page will automatically refresh, displaying the deployment URL.
 4. https://meena-rathi.github.io/quiz_javascript/
+
+
+## Credits ##
+1. w3shool
+2. <https://www.shecodes.io/athena/43030-how-to-add-hover-effects-to-a-button-in-javascript>
+3. https://www.w3schools.com/quiztest/quiztest.asp?qtest=JAVA (Question copied from W3School)
+4. <https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/>
