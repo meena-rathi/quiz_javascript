@@ -6,7 +6,7 @@ The purpose of my project is to create a basic quiz app. This quiz contains the 
 # User Story #
 
 ## home ##
-I, as a user, to start the quiz, eash question conian
+I, as a user, to see the instruction of quiz and start the quiz and see the result.
 
 
 # Feature #
@@ -22,7 +22,7 @@ I, as a user, to start the quiz, eash question conian
 
 ![Home](readme-doc/quiz.JPG)
 
-![Question](readme-doc/questions.JPG)
+![Question](readme-doc/Question.JPG)
 
 ![Result](readme-doc/result.JPG)
 
@@ -38,7 +38,7 @@ The color scheme for text is primarily orange, red, gray and white.
 
 ![Home](readme-doc/Home.JPG)
 
-![Question](readme-doc/Question.JPG)
+![Question](readme-doc/questions.JPG)
 
 ![Result](readme-doc/Resultt.JPG)
 
