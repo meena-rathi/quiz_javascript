@@ -41,8 +41,8 @@ let correctCounter = 0;
 let timer;
 const TIMER_DURATION = 10000;
 /**
- * This function is changing color mouserout and mouseover event,
- * wrapped normally.
+ * This function is changing the color in start button mouserout and mouseoverit,
+ * It set orange color when mouse over and reset when mouse out.
  * @param {number} arg A number to do something to.
  */
 function onStartBtnMouseOver() {
@@ -56,6 +56,12 @@ function onStartBtnMouseOut() {
 
 const nextButton = document.getElementById('nextButton');
 
+/**
+ * This function is changing the color in Next button mouserout and mouseoverit,
+ * It set orange color when mouse over and reset when mouse out.
+ * @param {number} arg A number to do something to.
+ */
+
 function onNextBtnMouseOver() {
     nextButton.style.backgroundColor = 'orange';
 }
@@ -64,8 +70,8 @@ function onNextBtnMouseOut() {
 }
 
 /**
- * Multiple lines of JSDoc text are written here,
- * wrapped normally.
+ *  Sets up event listeners for the start and next buttons to trigger hover effects,
+ * The both buuton changes the color mouseover and mouseout..
  * @param {number} arg A number to do something to.
  */
 function initializeGame() {
@@ -74,6 +80,12 @@ function initializeGame() {
     nextButton.addEventListener('mouseover', onNextBtnMouseOver);
     nextButton.addEventListener('mouseout', onNextBtnMouseOut);
 }
+
+/**
+ * This funcction Basiclly start the Quiz player Nmae score and timer will be enable,
+ * In this funtion Called the displayQuestion() funtion,questions and option will be appear on the screen.
+ * @param {number} arg A number to do something to.
+ */
 
 function startQuiz() {
     startButton.style.display = 'none';
@@ -113,11 +125,18 @@ function startQuiz() {
         displayQuestions();
     }
 }
+
+/**
+ * Each question has 10 second time, if user select the option in 10 second then timer will stop and press next button NextQuestion(),
+ * If the user didn't select the otion in 10 second after 10 second next question will be appear.
+ * if the timer end in last question result pop appear finishQuiz();
+ * user select the option only once  disableOptionClicks();.
+ * @param {number} arg A number to do something to.
+ */
 function startTimer() {
     let remaining_time = TIMER_DURATION / 1000;
     const timerValue = document.getElementById('timerValue');
     timerValue.textContent = remaining_time;
-
     timer = setInterval(function () {
         remaining_time--;
         if (remaining_time >= 0) {
@@ -135,6 +154,15 @@ function startTimer() {
         }
     }, 1000);
 }
+
+/**
+ * question and answer fetch from Dictonary question,
+ * CalleD timer Funtion.
+ * if the user finish the quiz then next button will be hide and submit button appear;
+ * after click submit result pop appear;.
+ * @param {number} arg A number to do something to.
+ */
+
 function displayQuestions() {
     startTimer();
     const currentQuestion = question[currentQuestionIndex];
@@ -142,40 +170,35 @@ function displayQuestions() {
     questionArea.textContent = currentQuestion.question;
     let options = document.getElementById("options");
     options.innerHTML = '';
-
     for (let index = 0; index < currentQuestion.option.length; index++) {
         let opt = currentQuestion.option[index];
-
         let option = document.createElement('label');
         option.textContent = opt;
         option.classList.add('option');
-
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
-
         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
         const isCorrect = currentQuestion.correctAnswer === opt;
-
         option.addEventListener("click", function () {
             compareAnswer(opt, currentQuestion.correctAnswer);
-
             let allOptions = options.querySelectorAll('.option');
             for (let i = 0; i < allOptions.length; i++) {
                 allOptions[i].style.backgroundColor = '';
             }
-
             option.style.backgroundColor = 'orange';
         });
-
         options.appendChild(option);
     }
-
     if (currentQuestionIndex === question.length - 1) {
         hideNextButton();
         showSubmitButton();
     }
 }
 
+/**
+ * nextQuestion is chaning the question ,
+ * @param {number} arg A number to do something to.
+ */
 
 function nextQuestion() {
     if (currentQuestionIndex < question.length - 1) {
@@ -188,14 +211,22 @@ function nextQuestion() {
     }
 }
 
+/**
+ * Hide the nextButton
+ */
 function hideNextButton() {
     const hideButton = document.getElementById('nextButton');
     hideButton.style.display = 'none';
 }
 
+/**
+ * Hide the submitButton
+ */
 function showSubmitButton() {
     document.getElementById('submitButton').style.display = 'block';
 }
+
+
 
 function compareAnswer(userAnswer, correctAnswer) {
     clearTimeout(timer);
@@ -205,23 +236,24 @@ function compareAnswer(userAnswer, correctAnswer) {
         const option = options[i];
 
         if (option.textContent === userAnswer) {
+            selectedAnswers[currentQuestionIndex] = userAnswer;
+
+            // Optionally, if you want to disable the selected option
+            option.removeEventListener('click', compareAnswer);
+            option.style.pointerEvents = 'none';
+
             if (userAnswer === correctAnswer) {
-                option.style.backgroundColor = 'blue';
-                selectedAnswers[currentQuestionIndex] = userAnswer;
                 incrementScore();
             } else {
-                option.style.backgroundColor = 'red';
-                selectedAnswers[currentQuestionIndex] = userAnswer;
                 incrementWrongAnswer();
-            }
-            for (let j = 0; j < options.length; j++) {
-                options[j].removeEventListener('click', compareAnswer);
-                options[j].style.pointerEvents = 'none';
             }
         }
     }
 }
 
+/**
+ * Disable the option user can selet the option once.
+ */
 function disableOptionClicks() {
     let options = document.querySelectorAll('.option');
     options.forEach(option => {
@@ -230,27 +262,39 @@ function disableOptionClicks() {
     });
 }
 
+/**
+ * correct option selection counter will be increment correct.
+ */
 function incrementScore() {
     correctCounter++;
     document.getElementById("score").innerText = correctCounter;
 }
 
+/**
+ * wrong option seection wrong counter increment.
+ */
 function incrementWrongAnswer() {
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
 }
 
+
+/**
+ * This calculate the perctcentage of quiz.
+ */
 function calculateScorePercentage() {
     const totalQuestions = question.length;
     const correctAnswers = correctCounter;
     const percentage = (correctAnswers / totalQuestions) * 100;
     return percentage.toFixed(2);
 }
-
+/**
+ * when the time ended in last question this function will be called,
+ * showModel pop will be called and display the the result.
+ */
 function finishQuiz() {
     const finalScore = calculateScorePercentage();
     const scorePercentage = parseFloat(finalScore);
-
     let message;
     if (scorePercentage >= 70) {
         message = `Congratulations! Well done on completing the quiz with a score of ${finalScore}%`;
@@ -260,12 +304,10 @@ function finishQuiz() {
     showModal(message);
     const questionArea = document.getElementById("question");
     questionArea.style.display = 'none';
-
     const submitButton = document.getElementById("submitButton");
     submitButton.style.display = 'none';
     const option = document.getElementById("options");
     option.style.display = 'none';
-
     let playerNameDisplay = document.getElementById("playerNameDisplay");
     playerNameDisplay.style.display = 'none';
     let scoreArea = document.getElementsByClassName("score-area")[0];
@@ -273,10 +315,14 @@ function finishQuiz() {
     finishQuiz = function () { };
 }
 
+/**
+ *When click on the submit button this function will be called,
+ * showModel pop will be called and display the the result.
+ */
+
 function submitQuiz() {
     const finalScore = calculateScorePercentage();
     const scorePercentage = parseFloat(finalScore);
-
     let message;
     if (scorePercentage >= 70) {
         message = `Congratulations! Well done on completing the quiz with a score of ${finalScore}%`;
@@ -300,6 +346,11 @@ function submitQuiz() {
     scoreArea.style.display = 'none';
     clearInterval(timer);
 }
+
+/**
+ * This function contain player Info and display in popModel,
+ */
+
 function showModal(message) {
     const modal = document.getElementById('modal');
     const modalMessage = document.getElementById('modal-message');
@@ -308,7 +359,6 @@ function showModal(message) {
     const playerName = document.getElementById("playerNameDisplay").textContent;
     const score = document.getElementById("score").textContent;
     const incorrect = document.getElementById("incorrect").textContent;
-
     const playerInfo = `<p>${playerName}</p>
                         <p>Correct Answers: ${score}</p>
                         <p>Incorrect Answers: ${incorrect}</p>`;
