@@ -20,11 +20,11 @@ I, as a user,
 5. Submit: Button: When the quiz end user click on the submit button result should be appear.
 6. Timer: When the timer ended in last result pop-up automatically appear.
 
-![Home](readme/quiz.JPG)
+![Home](readme-doc/quiz.JPG)
 
-![Question](readme/questions.JPG)
+![Question](readme-doc/questions.JPG)
 
-![Result](readme/result.JPG)
+![Result](readme-doc/result.JPG)
 
 # Typography and colorscheme #
 
@@ -36,11 +36,11 @@ The color scheme for text is primarily green and gray.
 
 # Wireframe #
 
-![Home](readme/Home.JPG)
+![Home](readme-doc/Home.JPG)
 
-![Question](readme/question.JPG)
+![Question](readme-doc/Question.JPG)
 
-![Result](readme/resultt.JPG)
+![Result](readme-doc/Resultt.JPG)
 
 
 # Technologies #
