@@ -69,8 +69,8 @@ The color scheme for text is primarily orange, red, gray and white.
 ## Code Validation ##
 1. No errors in CSS and Html File.
 2. https://validator.w3.org/nu/?doc=https%3A%2F%2Fmeena-rathi.github.io%2Fquiz_javascript%2F
-<https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmeena-rathi.github.io%2Fquiz_javascript%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en>
-
+3. https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmeena-rathi.github.io%2Fquiz_javascript%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+4. https://jshint.com/
 
 ## Test cases ##
 
