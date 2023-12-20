@@ -1,45 +1,27 @@
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("../images/quizimage.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    /* background-position: center center; */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../images/quizimage.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-} */
-
 .container {
-
-    /* border: 5px solid;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    height: 580px;
-    width: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px; */
-    /* border: 5px solid green; */
     position: absolute;
     display: flex;
     flex-direction: column;
-    /* Change to column layout */
     align-items: center;
-    /* Center items horizontally */
     justify-content: center;
     width: 100%;
     top: 50%;
@@ -73,7 +55,6 @@ h1 {
     font-weight: bold;
     border: 2px solid #ac2424;
     padding: 5px;
-    /* margin-top: 280px; */
     margin-top: 20px;
 }
 
@@ -94,10 +75,6 @@ h1 {
     font-size: 20px;
     color: #ffffff;
 }
-
-/* .score-area {
-    display: none;
-} */
 
 .display-area {
     display: none;
@@ -210,13 +187,7 @@ h1 {
     box-sizing: border-box;
 }
 
-/* .option:hover {
-    color: #ad0d0d;
-    cursor: pointer;
-} */
-
 #submitButton {
-
     font-size: 20px;
     width: 100px;
     background-color: #ac2424;
@@ -262,10 +233,6 @@ h1 {
 
 /*mobile*/
 @media (max-width: 767px) {
-    /* body {
-        background-size: cover;
-    } */
-
     h1 {
         font-size: 24px;
         font-weight: bold;

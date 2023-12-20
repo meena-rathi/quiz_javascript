@@ -34,9 +34,14 @@ The 'Lato' font family, a sans-serif typeface, has been selected for use across 
 Font Colors:
 The color scheme for text is primarily green and gray.
 
-
-
 # Wireframe #
+
+![Home](readme/Home.JPG)
+
+![Question](readme/question.JPG)
+
+![Result](readme/resultt.JPG)
+
 
 # Technologies #
 
