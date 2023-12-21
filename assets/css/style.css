@@ -245,17 +245,11 @@ h1 {
     h1 {
         font-size: 2rem;
         font-weight: bold;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
-
-
-
     .paragraph {
-        /* font-size: 1.2rem; */
         width: 100%;
-        /* 90 */
-        /* font-weight: bold; */
         font-size: 1.2rem;
         font-weight: bold;
     }
@@ -264,7 +258,6 @@ h1 {
     .option,
     .player-name,
     #inputname,
-
     #submitButton,
     #nextButton {
         font-size: 1.2rem;
@@ -272,12 +265,14 @@ h1 {
     }
 
     #btn-start {
-        font-size: 25px;
+        font-size: 2rem;
         margin-bottom: 60px;
         width: 100px;
         font-weight: bold;
-        height: 45px;
+        height: 50px;
+        align-items: center;
         text-align: center;
+        padding: 10px;
         /* margin-left: -60px; */
         /* margin-right: -50px; */
         /* font-size: 25px;
@@ -285,7 +280,7 @@ h1 {
         margin-bottom: 80px;
         width: 120px;
         height: 40px;
-        padding: 10px;
+       
         align-items: center; */
         /* margin-top: 80px; */
 
@@ -309,7 +304,7 @@ h1 {
         padding: 10px;
         margin-top: 80px; */
         width: 100px;
-        height: 35px;
+        height: 50px;
         padding: 8px;
         margin-top: 60px;
     }
@@ -322,8 +317,18 @@ h1 {
         font-size: 20px;
         font-weight: bold;
         position: absolute;
-        top: -10px;
+        color: #ffffff;
+        top: 15px;
         left: -50px;
+    }
+
+    .timer {
+        top: 15px;
+        right: -40px;
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: bold;
+        position: absolute;
     }
 
     .score-area {
@@ -340,15 +345,6 @@ h1 {
         max-width: 400px;
         font-size: 20px;
         padding: 8px;
-    }
-
-    .timer {
-        top: 15px;
-        right: -40px;
-        font-size: 16px;
-        color: #ffffff;
-        font-weight: bold;
-        position: absolute;
     }
 
     .modal {
