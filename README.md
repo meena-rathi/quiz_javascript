@@ -153,3 +153,4 @@ The color scheme for text is primarily orange, red, gray and white.
 3. https://www.w3schools.com/quiztest/quiztest.asp?qtest=JAVA (Question copied from W3School)
 4. <https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/>
 5. love maths
+6. images from google
