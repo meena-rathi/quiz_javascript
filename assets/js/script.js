@@ -43,7 +43,6 @@ const TIMER_DURATION = 10000;
 /**
  * This function is changing the color in start button mouserout and mouseoverit,
  * It set orange color when mouse over and reset when mouse out.
- * @param {number} arg A number to do something to.
  */
 function onStartBtnMouseOver() {
     startButton.style.backgroundColor = 'orange';
@@ -59,7 +58,6 @@ const nextButton = document.getElementById('nextButton');
 /**
  * This function is changing the color in Next button mouserout and mouseoverit,
  * It set orange color when mouse over and reset when mouse out.
- * @param {number} arg A number to do something to.
  */
 
 function onNextBtnMouseOver() {
@@ -72,7 +70,6 @@ function onNextBtnMouseOut() {
 /**
  *  Sets up event listeners for the start and next buttons to trigger hover effects,
  * The both buuton changes the color mouseover and mouseout..
- * @param {number} arg A number to do something to.
  */
 function initializeGame() {
     startButton.addEventListener('mouseover', onStartBtnMouseOver);
@@ -84,7 +81,6 @@ function initializeGame() {
 /**
  * This funcction Basiclly start the Quiz player Nmae score and timer will be enable,
  * In this funtion Called the displayQuestion() funtion,questions and option will be appear on the screen.
- * @param {number} arg A number to do something to.
  */
 
 function startQuiz() {
@@ -131,7 +127,6 @@ function startQuiz() {
  * If the user didn't select the otion in 10 second after 10 second next question will be appear.
  * if the timer end in last question result pop appear finishQuiz();
  * user select the option only once  disableOptionClicks();.
- * @param {number} arg A number to do something to.
  */
 function startTimer() {
     let remaining_time = TIMER_DURATION / 1000;
@@ -160,7 +155,6 @@ function startTimer() {
  * CalleD timer Funtion.
  * if the user finish the quiz then next button will be hide and submit button appear;
  * after click submit result pop appear;.
- * @param {number} arg A number to do something to.
  */
 
 function displayQuestions() {
@@ -197,7 +191,7 @@ function displayQuestions() {
 
 /**
  * nextQuestion is chaning the question ,
- * @param {number} arg A number to do something to.
+ * 
  */
 
 function nextQuestion() {
