@@ -23,7 +23,7 @@
       sizes="16x16"
       href="assets/favicon_io/favicon-16x16.png"
     />
-    <link rel="stylesheet" href="assets/css/stylee.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body>
@@ -44,12 +44,7 @@
           >Name field is required</span
         >
       </div>
-      <input
-        type="button"
-        id="btn-start"
-        value="Start Quiz"
-        onclick="startQuiz()"
-      />
+      <input type="button" id="btn-start" value="Start" onclick="startQuiz()" />
       <div id="playerNameDisplay"></div>
       <div class="score-area">
         <p class="scores">Correct<span id="score">0</span></p>
@@ -66,7 +61,6 @@
       </div>
       <div class="display-area">
         <button id="nextButton" onclick="nextQuestion()">Next</button>
-        <!-- <button onclick="perviousQuestion()">Previous</button> -->
       </div>
       <button id="submitButton" style="display: none" onclick="submitQuiz()">
         Submit
