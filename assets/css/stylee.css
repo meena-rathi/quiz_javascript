@@ -239,12 +239,16 @@ h1 {
     h1 {
         font-size: 30px;
         font-weight: bold;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
+        /* Reduced margin for better spacing */
     }
 
     .paragraph {
-        font-size: 22px;
+        font-size: 18px;
+        /* Slightly reduced font size for better readability */
         width: 90%;
+        max-width: 400px;
+        /* Limit width for better readability on smaller screens */
     }
 
     .scores,
@@ -260,6 +264,8 @@ h1 {
     #inputname {
         margin-top: 10px;
         width: 140px;
+        max-width: 90%;
+        /* Adjust the width for smaller screens */
     }
 
     #btn-start,
@@ -267,7 +273,8 @@ h1 {
     #nextButton {
         width: 120px;
         padding: 10px;
-        margin-top: 80px;
+        margin-top: 20px;
+        /* Reduced margin for better positioning */
     }
 
     #playerNameDisplay {
@@ -275,13 +282,15 @@ h1 {
         font-weight: bold;
         position: absolute;
         top: 10px;
-        left: -50px;
+        left: 10px;
+        /* Adjust the left positioning as needed */
     }
 
     .score-area {
         font-size: 16px;
-        margin-bottom: 20px;
-        margin-top: 20px;
+        margin-bottom: 10px;
+        /* Reduced margin for better spacing */
+        margin-top: 10px;
         margin-right: 10px;
         top: 10px;
         right: 10px;
@@ -289,14 +298,16 @@ h1 {
     }
 
     .questions {
-        max-width: 400px;
+        max-width: 90%;
+        /* Adjust width for smaller screens */
         font-size: 20px;
         padding: 8px;
     }
 
     .timer {
         top: 15px;
-        right: -40px;
+        right: 10px;
+        /* Adjust the right positioning as needed */
         font-size: 16px;
         color: #ffffff;
         font-weight: bold;
@@ -308,11 +319,11 @@ h1 {
         position: fixed;
         z-index: 1;
         left: 0;
-        top: 200px;
+        top: 50px;
+        /* Adjust the top positioning as needed */
         width: 100%;
         height: 100%;
         overflow: auto;
-        align-self: center;
         background-color: #00000080;
     }
 
@@ -321,8 +332,10 @@ h1 {
         margin: 15% auto;
         padding: 20px;
         border: 2px solid #ac2424;
-        width: 80%;
-        max-width: 600px;
+        width: 90%;
+        /* Adjust the width for smaller screens */
+        max-width: 400px;
+        /* Limit width for better readability on smaller screens */
     }
 }
 
@@ -339,7 +352,7 @@ h1 {
 
     .paragraph {
         font-size: 28px;
-        width: 90%;
+        /* width: 90%; */
     }
 
     .scores,
