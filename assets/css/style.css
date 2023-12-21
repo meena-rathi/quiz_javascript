@@ -247,7 +247,7 @@ h1 {
         /* 24 */
         font-weight: bold;
         /* margin-bottom: 50px; */
-        font-size: 1.8rem;
+        /* font-size: 1.8rem; */
         margin-bottom: 30px;
     }
 
@@ -269,8 +269,7 @@ h1 {
 
     #submitButton,
     #nextButton {
-        font-size: 25px;
-
+        font-size: 1.2rem;
         font-weight: bold;
     }
 
@@ -278,8 +277,12 @@ h1 {
         font-size: 25px;
         margin-bottom: 60px;
         width: 100px;
-        height: 35px;
-        padding: 8px;
+        height: 45px;
+        padding: 10px;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         /* font-size: 25px;
         font-weight: bold;
         margin-bottom: 80px;
