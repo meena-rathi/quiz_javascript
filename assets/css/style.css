@@ -156,7 +156,7 @@ h1 {
 #question {
     border: 2px solid #ac2424;
     margin-bottom: 10px;
-    padding: 20px;
+    padding: 5px;
     font-size: 1.2rem;
     background-color: #d3d3d3;
     color: #000000;
@@ -168,28 +168,31 @@ h1 {
 }
 
 .questions {
-    padding: 20px;
+    padding: 5px;
     margin-bottom: 15px;
     background-color: #d3d3d3;
 }
 
 #options {
     max-width: 400px;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0px;
 }
 
 .option {
     border: 2px solid #ac2424;
     background-color: #865353;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     margin-top: 5px;
     color: #000000;
     margin-bottom: 0;
     width: 100%;
+    padding: 0px;
+
     box-sizing: border-box;
 }
 
@@ -245,7 +248,7 @@ h1 {
     h1 {
         font-size: 2rem;
         font-weight: bold;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
     }
 
     .paragraph {
@@ -273,17 +276,6 @@ h1 {
         align-items: center;
         text-align: center;
         padding: 10px;
-        /* margin-left: -60px; */
-        /* margin-right: -50px; */
-        /* font-size: 25px;
-        font-weight: bold;
-        margin-bottom: 80px;
-        width: 120px;
-        height: 40px;
-       
-        align-items: center; */
-        /* margin-top: 80px; */
-
     }
 
     .player-name {
@@ -305,7 +297,7 @@ h1 {
         margin-top: 80px; */
         /* margin-top: 120px; */
         font-size: 2rem;
-        margin-bottom: -100px;
+        margin-bottom: -80px;
         width: 140px;
         font-weight: bold;
         height: 60px;
@@ -384,13 +376,15 @@ h1 {
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 50px;
         font-weight: bold;
+        margin-bottom: 40px;
     }
 
     .paragraph {
-        font-size: 25px;
+        font-size: 2rem;
         width: 90%;
+        font-weight: bold;
     }
 
     .scores,
@@ -400,44 +394,70 @@ h1 {
     #btn-start,
     #submitButton,
     #nextButton {
-        font-size: 25px;
+        /* font-size: 25px; */
+        font-size: 2rem;
+        font-weight: bold;
 
     }
 
     #submitButton,
     #nextButton {
-        margin-top: 160px;
-        width: 160px;
+        /* margin-top: 160px;
+        width: 160px; */
 
+        font-size: 2rem;
+        margin-bottom: -100px;
+        width: 140px;
+        font-weight: bold;
+        height: 60px;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
     }
 
     .player-name {
         margin-top: 40px;
+        font-size: 1.5rem;
     }
 
     #inputname {
         margin-top: 12px;
+        padding: 5px;
+        font-size: 1.2rem;
 
     }
 
     #btn-start {
         width: 150px;
         padding: 10px;
+        text-align: center;
+        align-items: center;
         margin-top: 80px;
+        font-size: 2rem;
     }
 
     #playerNameDisplay {
         font-size: 25px;
         font-weight: bold;
         position: absolute;
-        top: 10px;
+        top: 20px;
+        color: #ffffff;
         left: -50px;
+    }
+
+    .timer {
+        top: 20px;
+        right: -80px;
+        font-size: 25px;
+        color: #ffffff;
+        font-weight: bold;
+        position: absolute;
     }
 
     .score-area {
         font-size: 25px;
-        margin-bottom: 20px;
-        margin-top: 20px;
+        margin-bottom: 25px;
+        margin-top: 25px;
         margin-right: 10px;
         top: 10px;
         right: 10px;
@@ -456,14 +476,7 @@ h1 {
         padding: 8px;
     }
 
-    .timer {
-        top: 15px;
-        right: -80px;
-        font-size: 25px;
-        color: #ffffff;
-        font-weight: bold;
-        position: absolute;
-    }
+
 
     .modal {
         display: none;
