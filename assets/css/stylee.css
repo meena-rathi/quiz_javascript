@@ -55,7 +55,7 @@ h1 {
     font-weight: bold;
     border: 2px solid #ac2424;
     padding: 5px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-top: 20px;
 }
 
@@ -68,13 +68,13 @@ h1 {
     font-weight: bold;
     background-color: #ac2424;
     margin-top: 20px;
-    color: #fefefe;
+    color: #000000;
 }
 
 .player-name {
     margin-bottom: 10px;
+    font-size: 1.42rem;
     font-weight: bold;
-    font-size: 20px;
     color: #ffffff;
 }
 
@@ -84,17 +84,19 @@ h1 {
 }
 
 #nextButton {
-    font-size: 20px;
+    font-size: 2rem;
+    font-weight: bold;
     font-weight: bold;
     width: 100px;
     background-color: #ac2424;
     position: absolute;
+    color: #000000;
     bottom: 20px;
     right: 20px;
 }
 
 #playerNameDisplay {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
     position: absolute;
     top: 20px;
@@ -114,14 +116,14 @@ h1 {
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 20px;
+    font-size: 1.5rem;
     color: #ffffff;
     font-weight: bold;
 }
 
 .score-area {
     display: none;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
     margin-right: 20px;
@@ -133,7 +135,7 @@ h1 {
 }
 
 .scores {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-left: 20px;
 }
@@ -154,11 +156,11 @@ h1 {
     border: 2px solid #ac2424;
     margin-bottom: 10px;
     padding: 20px;
+    font-size: 1.2rem;
     background-color: #d3d3d3;
-    color: black;
+    color: #000000;
     max-width: 400px;
     word-wrap: break-word;
-    font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,7 +175,7 @@ h1 {
 #options {
     max-width: 400px;
     word-wrap: break-word;
-    font-size: 20px;
+    font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,22 +184,23 @@ h1 {
 .option {
     border: 2px solid #ac2424;
     background-color: #865353;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.6rem;
     margin-top: 5px;
+    color: #000000;
     margin-bottom: 0;
     width: 100%;
     box-sizing: border-box;
 }
 
 #submitButton {
-    font-size: 20px;
-    width: 100px;
+    width: 120px;
     background-color: #ac2424;
     position: absolute;
     bottom: 20px;
     right: 20px;
+    font-size: 2rem;
     font-weight: bold;
+    color: #000000;
 }
 
 .modal {
