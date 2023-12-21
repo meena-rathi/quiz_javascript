@@ -99,22 +99,20 @@ The color scheme for text is primarily orange, red, gray and white.
 2. After clicking the start button question appear.
 3. Select the any one option in 10 second as per question and then next.
 4. And the click on the submit button.
-6. Browser : chrome
-7. Actual result : The result pop Up should be appear.
-8. Excepted result : It should be appear result Pop Up.
-9. Status : pass
-10. .
+5. Browser : chrome
+6. Actual result : The result pop Up should be appear.
+7. Excepted result : It should be appear result Pop Up.
+8. Status : pass
 
 **Test Case: 4**
 1. Click on the https://meena-rathi.github.io/quiz_javascript/.
 2. After clicking the start button question appear.
 3. After 10 seconds next question will appear.
-5. If the timer end in last question the user didn't select any option.
-6. Browser : chrome
-7. Actual result : The result pop Upshould be appear.
-8. Excepted result : It should be appear result Pop Up.
-9. Status : pass
-10. .
+4. If the timer end in last question the user didn't select any option.
+5. Browser : chrome
+6. Actual result : The result pop Upshould be appear.
+7. Excepted result : It should be appear result Pop Up.
+8. Status : pass
 
 
 # Fixed Bugs #
