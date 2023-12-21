@@ -20,9 +20,9 @@ I, as a user, to see the instruction of quiz and start the quiz and see the resu
 5. Submit: Button: When the quiz end user click on the submit button result should be appear.
 6. Timer: When the timer ended in last question result pop-up automatically appear.
 
-![Home](readme-doc/quiz.JPG)
+![Home](readme-doc/home.JPG)
 
-![Question](readme-doc/Question.JPG)
+![Question](readme-doc/question.JPG)
 
 ![Result](readme-doc/result.JPG)
 
@@ -152,3 +152,4 @@ The color scheme for text is primarily orange, red, gray and white.
 2. <https://www.shecodes.io/athena/43030-how-to-add-hover-effects-to-a-button-in-javascript>
 3. https://www.w3schools.com/quiztest/quiztest.asp?qtest=JAVA (Question copied from W3School)
 4. <https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/>
+5. love maths
