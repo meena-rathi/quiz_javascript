@@ -74,7 +74,6 @@ The color scheme for text is primarily orange, red, gray and white.
 
 ![Performances](readme-doc/performances.JPG)
 
-
 ## Test cases ##
 
 **Test Case: 1**
