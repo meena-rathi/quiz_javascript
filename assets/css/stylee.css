@@ -46,7 +46,7 @@ h1 {
 .paragraph {
     word-wrap: break-word;
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     width: 500px;
     color: #ffffff;
 }
@@ -55,6 +55,7 @@ h1 {
     font-weight: bold;
     border: 2px solid #ac2424;
     padding: 5px;
+    font-size: 1rem;
     margin-top: 20px;
 }
 
@@ -63,10 +64,11 @@ h1 {
 }
 
 #btn-start {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: bold;
     background-color: #ac2424;
     margin-top: 20px;
+    color: #fefefe;
 }
 
 .player-name {
@@ -276,7 +278,10 @@ h1 {
         height: 40px;
         padding: 10px;
         margin-top: 80px;
+    }
 
+    #option {
+        padding: 0px;
     }
 
     #playerNameDisplay {
