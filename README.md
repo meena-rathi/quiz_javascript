@@ -1,7 +1,7 @@
 
 # Purpose of the project #
 
-The purpose of my project is to create a basic quiz app. This quiz contains the basic programming question Eac question has 10 second time after 10 10 new question will appear. if the the user has select the option with 10 second, the he need to click on the next button for next questions. after submitting the quiz result pop will appear.
+The purpose of my project is to create a basic quiz app. This quiz contains the basic programming question each question has 10 second time after 10 10 new question will appear. if the the user has select the option with 10 second, the he need to click on the next button for next questions. after submitting the quiz result pop will appear.
 
 # User Story #
 
@@ -67,7 +67,7 @@ The color scheme for text is primarily orange, red, gray and white.
 # Testing #
 
 ## Code Validation ##
-1. No errors in CSS and Html File.
+1. No errors in CSS , JS and Html File.
 2. https://validator.w3.org/nu/?doc=https%3A%2F%2Fmeena-rathi.github.io%2Fquiz_javascript%2F
 3. https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmeena-rathi.github.io%2Fquiz_javascript%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
 4. https://jshint.com/
@@ -75,24 +75,47 @@ The color scheme for text is primarily orange, red, gray and white.
 ## Test cases ##
 
 **Test Case: 1**
-1. Click on the https://meena-rathi.github.io/quiz_javascript/.
+1. Click on the https://meena-rathi.github.io/quiz_javascript/
 2. Enter the Player name.
-3. The name is required
-4. And click on the start quiz.
+3. And click on the start quiz.
+4. And the questions appear.
 5. Browser : chrome
-6. Actual result : The page should be redireted to the question app.
+6. Actual result : The page should be redireted to the questions.
 7. Excepted result : It should be shows the quetsions.
 8. Status : pass
 
 **Test Case: 2**
-1. Click on the https://meena-rathi.github.io/quiz_javascript/.
-2. Select the any one option as per question and then next.
-3. After 10 seconds next question will appear.
-4. And the click on the submit button.
+1. Click on the https://meena-rathi.github.io/quiz_javascript/
+2. Enter the Player name.
+3. And click on the start quiz without enter the player name.
+4. Error the name is required.
 5. Browser : chrome
-6. Actual result : The result pop Upshould be appear.
-7. Excepted result : It should be appear result Pop Up.
+6. Actual result : The page shows error The name is required.
+7. Excepted result : It should be shows the name is required..
 8. Status : pass
+
+**Test Case: 3**
+1. Click on the https://meena-rathi.github.io/quiz_javascript/.
+2. After clicking the start button question appear.
+3. Select the any one option in 10 second as per question and then next.
+4. And the click on the submit button.
+6. Browser : chrome
+7. Actual result : The result pop Up should be appear.
+8. Excepted result : It should be appear result Pop Up.
+9. Status : pass
+10. .
+
+**Test Case: 4**
+1. Click on the https://meena-rathi.github.io/quiz_javascript/.
+2. After clicking the start button question appear.
+3. After 10 seconds next question will appear.
+5. If the timer end in last question the user didn't select any option.
+6. Browser : chrome
+7. Actual result : The result pop Upshould be appear.
+8. Excepted result : It should be appear result Pop Up.
+9. Status : pass
+10. .
+
 
 # Fixed Bugs #
 1. Fix submit button for all devices.
@@ -123,7 +146,6 @@ The color scheme for text is primarily orange, red, gray and white.
 2. Choose the "Pages" section, select the main branch, and set the root directory.
 3. Once configured, the page will automatically refresh, displaying the deployment URL.
 4. https://meena-rathi.github.io/quiz_javascript/
-
 
 ## Credits ##
 1. w3shool
