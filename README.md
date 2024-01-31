@@ -1,13 +1,12 @@
 
 # Purpose of the project #
 
-The purpose of my project is to create a basic quiz app. This quiz contains the basic programming question each question has 10 second time after 10 10 new question will appear. if the the user has select the option with 10 second, the he need to click on the next button for next questions. after submitting the quiz result pop will appear.
+The purpose of my project is to create a basic quiz app. This quiz has simple programming questions. After 10 seconds, a new question will appear. If the user selected the option within 10 seconds, he should click on the next button for the next question. After you submit the quiz results, a message will appear.
 
 # User Story #
 
 ## home ##
-I, as a user, to see the instruction of quiz and start the quiz and see the result.
-
+As a user, I want to view the quiz instructions, begin the quiz, and then view the results afterward.
 
 # Feature #
 
