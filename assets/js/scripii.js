@@ -157,6 +157,38 @@ function startTimer() {
  * after click submit result pop appear;.
  */
 
+// function displayQuestions() {
+//     startTimer();
+//     const currentQuestion = question[currentQuestionIndex];
+//     let questionArea = document.getElementById("question");
+//     questionArea.textContent = currentQuestion.question;
+//     let options = document.getElementById("options");
+//     options.innerHTML = '';
+//     for (let index = 0; index < currentQuestion.option.length; index++) {
+//         let opt = currentQuestion.option[index];
+//         let option = document.createElement('label');
+//         option.textContent = opt;
+//         option.classList.add('option');
+//         option.appendChild(document.createElement('br'));
+//         option.appendChild(document.createElement('br'));
+//         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
+//         const isCorrect = currentQuestion.correctAnswer === opt;
+//         option.addEventListener("click", function () {
+//             compareAnswer(opt, currentQuestion.correctAnswer);
+//             let allOptions = options.querySelectorAll('.option');
+//             for (let i = 0; i < allOptions.length; i++) {
+//                 allOptions[i].style.backgroundColor = '';
+//             }
+//             option.style.backgroundColor = 'orange';
+//         });
+//         options.appendChild(option);
+//     }
+//     if (currentQuestionIndex === question.length - 1) {
+//         hideNextButton();
+//         showSubmitButton();
+//     }
+// }
+
 function displayQuestions() {
     startTimer();
     const currentQuestion = question[currentQuestionIndex];
@@ -164,6 +196,9 @@ function displayQuestions() {
     questionArea.textContent = currentQuestion.question;
     let options = document.getElementById("options");
     options.innerHTML = '';
+    
+    let optionSelected = false;
+
     for (let index = 0; index < currentQuestion.option.length; index++) {
         let opt = currentQuestion.option[index];
         let option = document.createElement('label');
@@ -171,18 +206,30 @@ function displayQuestions() {
         option.classList.add('option');
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
+
         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
         const isCorrect = currentQuestion.correctAnswer === opt;
+
         option.addEventListener("click", function () {
-            compareAnswer(opt, currentQuestion.correctAnswer);
-            let allOptions = options.querySelectorAll('.option');
-            for (let i = 0; i < allOptions.length; i++) {
-                allOptions[i].style.backgroundColor = '';
+            // Check if an option has already been selected
+            if (!optionSelected) {
+                optionSelected = true;
+                compareAnswer(opt, currentQuestion.correctAnswer);
+
+                let allOptions = options.querySelectorAll('.option');
+                for (let i = 0; i < allOptions.length; i++) {
+                    allOptions[i].style.backgroundColor = '';
+                }
+                option.style.backgroundColor = 'orange';
+
+                // Disable all options after selection
+                disableOptionClicks();
             }
-            option.style.backgroundColor = 'orange';
         });
+
         options.appendChild(option);
     }
+
     if (currentQuestionIndex === question.length - 1) {
         hideNextButton();
         showSubmitButton();
@@ -233,8 +280,8 @@ function compareAnswer(userAnswer, correctAnswer) {
             selectedAnswers[currentQuestionIndex] = userAnswer;
 
             // Optionally, if you want to disable the selected option
-            option.removeEventListener('click', compareAnswer);
-            option.style.pointerEvents = 'none';
+            // option.removeEventListener('click', compareAnswer);
+            // option.style.pointerEvents = 'none';
 
             if (userAnswer === correctAnswer) {
                 incrementScore();
@@ -246,7 +293,7 @@ function compareAnswer(userAnswer, correctAnswer) {
 }
 
 /**
- * Disable the option user can selet the option once.
+ * Disable the option user can select the option once.
  */
 function disableOptionClicks() {
     let options = document.querySelectorAll('.option');
