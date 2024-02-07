@@ -75,6 +75,14 @@ The color scheme for text is primarily orange, red, gray and white.
 
 ## Test cases ##
 
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| The Sites title | Click on the <https://meena-rathi.github.io/quiz_javascript/> | Click on the <https://meena-rathi.github.io/quiz_javascript/> | Home page | Pass |
+| How to play button | Displays the modal with the instructions on how to play the game | Clicked on button | Modal with instructions on how to play opens | Pass |
+| Player name Text Field | Enter the Player name | Enterted Player Name  | click on the start button | Pass |
+| Player name Text Field | show Error space are not allowed | clicked on the start button  | spaces are not allowed | Pass |
+| Player name Text Field | player name is required | clicked on the start button  | Player Name is reqired | Pass |
+
 **Test Case: 1**
 1. Click on the https://meena-rathi.github.io/quiz_javascript/
 2. Enter the Player name.
