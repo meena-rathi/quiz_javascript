@@ -38,10 +38,12 @@
       </div>
       <div class="player-name">
         <label for="inputname">Enter your name:</label>
-
         <input type="text" id="inputname" />
         <span id="nameError" style="color: red; display: none"
           >Name field is required</span
+        >
+        <span id="nameErrorspaces" style="color: red; display: none"
+          >spaces are not allowed</span
         >
       </div>
       <input type="button" id="btn-start" value="Start" onclick="startQuiz()" />
@@ -73,6 +75,6 @@
         <p id="modal-message"></p>
       </div>
     </div>
-    <script src="assets/js/scripii.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

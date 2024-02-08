@@ -77,67 +77,29 @@ The color scheme for text is primarily orange, red, gray and white.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| The Sites title | Click on the <https://meena-rathi.github.io/quiz_javascript/> | Click on the <https://meena-rathi.github.io/quiz_javascript/> | Home page | Pass |
-| How to play button | Displays the modal with the instructions on how to play the game | Clicked on button | Modal with instructions on how to play opens | Pass |
-| Player name Text Field | Enter the Player name | Enterted Player Name  | click on the start button | Pass |
-| Player name Text Field | show Error space are not allowed | clicked on the start button  | spaces are not allowed | Pass |
+| The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
+| Start | Question appear on the screen | after clicked on the start button | Question dislpay | Pass |
+| Player name Text Field | Questions page appear | clicked on the start button | Question Display | Pass |
+| Player name Text Field | Show Error space are not allowed | clicked on the start button  | spaces are not allowed | Pass |
 | Player name Text Field | player name is required | clicked on the start button  | Player Name is reqired | Pass |
 
 
-**Test Case: 3**
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
+| Start | Question appear on the screen | after clicked on the start button | Question dislpay | Pass |
+| Question | Next Question should be appear| When the timer out (10 Seconds) in pervious quetsion | New question automatically appear after 10 second time out | Pass |
+|
 
-1. Click on the <https://meena-rathi.github.io/quiz_javascript/>.
-2. After clicking the start button question appear.
-3. Select the any one option in 10 second as per question and then next.
-4. And the click on the submit button.
-5. Browser : chrome
-6. Actual result : The result pop Up should be appear.
-7. Excepted result : It should be appear result Pop Up.
-8. Status : pass
+
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
-| Start | Next Question should be appear| When the timer out (10 Seconds) in pervious quetsion | New question automatically appear after 10 second time out | Pass |
-
-**Test Case: 4**
-1. Click on the https://meena-rathi.github.io/quiz_javascript/.
-2. After clicking the start button question appear.
-3. After 10 seconds next question will appear.
-4. If the timer end in last question the user didn't select any option.
-5. Browser : chrome
-6. Actual result : The result pop Upshould be appear.
-7. Excepted result : It should be appear result Pop Up.
-8. Status : pass
-
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
-| --- | --- | --- | --- | --- |
-| The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
-| Start | Click to Next button for next Question | When the user select the option with in 10 second | after clicking the next button new quetsion should be appear. | Pass |
-| Start | Correct or incorrect counter increment on the behald of user selection option | Either user select the correct or incorrect option | Correct or incorrect counter should be increment | Pass |
-
-
-**Test Case: 1**
-1. Click on the https://meena-rathi.github.io/quiz_javascript/
-2. Enter the Player name.
-3. And click on the start quiz.
-4. And the questions appear.
-5. Browser : chrome
-6. Actual result : The page should be redireted to the questions.
-7. Excepted result : It should be shows the quetsions.
-8. Status : pass
-
-**Test Case: 2**
-1. Click on the https://meena-rathi.github.io/quiz_javascript/
-2. Enter the Player name.
-3. And click on the start quiz without enter the player name.
-4. Error the name is required.
-5. Browser : chrome
-6. Actual result : The page shows error The name is required.
-7. Excepted result : It should be shows the name is required..
-8. Status : pass
-
-
+| Start | Question appear on the screen | after clicked on the start button | Question dislpay | Pass |
+| Next | Click to Next button for next Question | When the user select the option with in 10 second | after clicking the next button new quetsion should be appear. | Pass |
+| Counter | Correct or incorrect counter increment on the behald of user selection option | Either user select the correct or incorrect option | Correct or incorrect counter should be increment | Pass |
+| Submit | Result pop should be shows the result | Clicked on the submit button | Result pop up appear appear | Pass |
 
 
 

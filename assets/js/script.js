@@ -1,10 +1,3 @@
-/**
-GLOBAL Constants - const
-Global variable. - let
-functions
-document.addEventListener("DOMContentLoaded", initializeGame);
-**/
-
 let startButton = document.getElementById('btn-start');
 const question = [
     {
@@ -86,11 +79,16 @@ function initializeGame() {
 function startQuiz() {
     startButton.style.display = 'none';
     let playerName = document.getElementById("inputname").value;
-    let nameError = document.getElementById("nameError");
 
-    if (playerName === "") {
+    let nameError = document.getElementById("nameError");
+    let nameErrorspaces = document.getElementById("nameErrorspaces");
+
+    if (playerName === "" || playerName.includes(" ")) {
+
         nameError.style.display = "block";
+        nameErrorspaces.style.display = "block";
         startButton.style.display = 'block';
+        return false;
     } else {
         let playerNameDisplay = document.getElementById("playerNameDisplay");
         playerNameDisplay.textContent = "Player Name: " + playerName;
@@ -100,6 +98,8 @@ function startQuiz() {
 
         let nameError = document.getElementById("nameError");
         nameError.style.display = 'none';
+        let nameErrorspaces = document.getElementById("nameErrorspaces");
+        nameErrorspaces.style.display = 'none';
 
         const nameLabel = document.querySelector('label[for="inputname"]');
         nameLabel.style.display = 'none';
@@ -196,7 +196,7 @@ function displayQuestions() {
     questionArea.textContent = currentQuestion.question;
     let options = document.getElementById("options");
     options.innerHTML = '';
-    
+
     let optionSelected = false;
 
     for (let index = 0; index < currentQuestion.option.length; index++) {
