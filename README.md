@@ -103,15 +103,16 @@ The color scheme for text is primarily orange, red, gray and white.
 | Submit | Result pop should be shows the result | Clicked on the submit button | Result pop up appear appear | Pass |
 
 
-
-
 # Fixed Bugs #
-1. Fix submit button for all devices.
-2. Set timer for each questions.
-3. Submit buttonfix result pop appear.
-4. Fixed Images Attributes.
-5. Fixed css.
-6. Fix Javascript
+
+| No | Bug | How I solved the issue |
+| :--- | :--- | :--- |
+| 1 | The time calculation for each question is not accurate. | I allocated 10 seconds for each question.|
+| 2 | 
+There is an issue with player name validation as it doesn't display an error.|  I implemented if and elseif conditions to show the error.|
+| 3 | The CSS alignment was not correct. |  I fixed it by adjusting the styles in the style.css file. |
+| 4 | There was a problem with the counter incrementing when the user changed the option. | I resolved this by ensuring that once the user selects an option, it cannot be changed.|
+| 5 | The submit button was not aligned properly. |  I addressed this by setting the CSS for all devices to ensure proper alignment. |
 
 # Supported Screen and browser #
 1. The website is compatible with all devices.
