@@ -83,13 +83,21 @@ function startQuiz() {
     let nameError = document.getElementById("nameError");
     let nameErrorspaces = document.getElementById("nameErrorspaces");
 
-    if (playerName === "" || playerName.includes(" ")) {
+    if (playerName === "") {
 
         nameError.style.display = "block";
         nameErrorspaces.style.display = "block";
         startButton.style.display = 'block';
         return false;
-    } else {
+    } 
+    else if(playerName.includes(" "))
+    {
+    nameError.style.display = "none"; 
+        nameErrorspaces.style.display = "block";
+        startButton.style.display = 'block';
+        return false;
+    }
+    else {
         let playerNameDisplay = document.getElementById("playerNameDisplay");
         playerNameDisplay.textContent = "Player Name: " + playerName;
 
@@ -156,42 +164,10 @@ function startTimer() {
  * if the user finish the quiz then next button will be hide and submit button appear;
  * after click submit result pop appear;.
  */
-
-// function displayQuestions() {
-//     startTimer();
-//     const currentQuestion = question[currentQuestionIndex];
-//     let questionArea = document.getElementById("question");
-//     questionArea.textContent = currentQuestion.question;
-//     let options = document.getElementById("options");
-//     options.innerHTML = '';
-//     for (let index = 0; index < currentQuestion.option.length; index++) {
-//         let opt = currentQuestion.option[index];
-//         let option = document.createElement('label');
-//         option.textContent = opt;
-//         option.classList.add('option');
-//         option.appendChild(document.createElement('br'));
-//         option.appendChild(document.createElement('br'));
-//         const isSelected = selectedAnswers[currentQuestionIndex] === opt;
-//         const isCorrect = currentQuestion.correctAnswer === opt;
-//         option.addEventListener("click", function () {
-//             compareAnswer(opt, currentQuestion.correctAnswer);
-//             let allOptions = options.querySelectorAll('.option');
-//             for (let i = 0; i < allOptions.length; i++) {
-//                 allOptions[i].style.backgroundColor = '';
-//             }
-//             option.style.backgroundColor = 'orange';
-//         });
-//         options.appendChild(option);
-//     }
-//     if (currentQuestionIndex === question.length - 1) {
-//         hideNextButton();
-//         showSubmitButton();
-//     }
-// }
-
 function displayQuestions() {
     startTimer();
     const currentQuestion = question[currentQuestionIndex];
+    document.getElementById("questionNumber").textContent = "Question " + (currentQuestionIndex + 1);
     let questionArea = document.getElementById("question");
     questionArea.textContent = currentQuestion.question;
     let options = document.getElementById("options");
@@ -211,7 +187,6 @@ function displayQuestions() {
         const isCorrect = currentQuestion.correctAnswer === opt;
 
         option.addEventListener("click", function () {
-            // Check if an option has already been selected
             if (!optionSelected) {
                 optionSelected = true;
                 compareAnswer(opt, currentQuestion.correctAnswer);
@@ -222,7 +197,6 @@ function displayQuestions() {
                 }
                 option.style.backgroundColor = 'orange';
 
-                // Disable all options after selection
                 disableOptionClicks();
             }
         });

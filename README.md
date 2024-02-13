@@ -75,6 +75,8 @@ The color scheme for text is primarily orange, red, gray and white.
 
 ## Test cases ##
 
+**Test Cae 1**
+
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
@@ -83,7 +85,7 @@ The color scheme for text is primarily orange, red, gray and white.
 | Player name Text Field | Show Error space are not allowed | clicked on the start button  | spaces are not allowed | Pass |
 | Player name Text Field | player name is required | clicked on the start button  | Player Name is reqired | Pass |
 
-
+**Test case2**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
@@ -91,8 +93,7 @@ The color scheme for text is primarily orange, red, gray and white.
 | Question | Next Question should be appear| When the timer out (10 Seconds) in pervious quetsion | New question automatically appear after 10 second time out | Pass |
 |
 
-
-
+**Test case3**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
