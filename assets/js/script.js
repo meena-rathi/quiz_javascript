@@ -84,20 +84,16 @@ function startQuiz() {
     let nameErrorspaces = document.getElementById("nameErrorspaces");
 
     if (playerName === "") {
-
         nameError.style.display = "block";
+        nameErrorspaces.style.display = "none";
+        startButton.style.display = 'block';
+        return false;
+    } else if (playerName.includes(" ")) {
+        nameError.style.display = "none";
         nameErrorspaces.style.display = "block";
         startButton.style.display = 'block';
         return false;
-    } 
-    else if(playerName.includes(" "))
-    {
-    nameError.style.display = "none"; 
-        nameErrorspaces.style.display = "block";
-        startButton.style.display = 'block';
-        return false;
-    }
-    else {
+    } else {
         let playerNameDisplay = document.getElementById("playerNameDisplay");
         playerNameDisplay.textContent = "Player Name: " + playerName;
 
@@ -183,8 +179,8 @@ function displayQuestions() {
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
 
-        const isSelected = selectedAnswers[currentQuestionIndex] === opt;
-        const isCorrect = currentQuestion.correctAnswer === opt;
+        // const isSelected = selectedAnswers[currentQuestionIndex] === opt;
+        // const isCorrect = currentQuestion.correctAnswer === opt;
 
         option.addEventListener("click", function () {
             if (!optionSelected) {
@@ -321,6 +317,7 @@ function finishQuiz() {
     questionArea.style.display = 'none';
     const submitButton = document.getElementById("submitButton");
     submitButton.style.display = 'none';
+
     const option = document.getElementById("options");
     option.style.display = 'none';
     let playerNameDisplay = document.getElementById("playerNameDisplay");
@@ -346,14 +343,15 @@ function submitQuiz() {
     }
     clearInterval(timer);
     showModal(message);
-
     const questionArea = document.getElementById("question");
     questionArea.style.display = 'none';
-
+    const questionNumber = document.getElementById("questionNumber");
+    questionNumber.style.display = 'none';
     const submitButton = document.getElementById("submitButton");
     submitButton.style.display = 'none';
     const option = document.getElementById("options");
     option.style.display = 'none';
+  
 
     let playerNameDisplay = document.getElementById("playerNameDisplay");
     playerNameDisplay.style.display = 'none';
