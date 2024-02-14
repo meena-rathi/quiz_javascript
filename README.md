@@ -79,28 +79,27 @@ The color scheme for text is primarily orange, red, gray and white.
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
-| Start | Question appear on the screen | after clicked on the start button | Question dislpay | Pass |
-| Player name Text Field | Questions page appear | clicked on the start button | Question Display | Pass |
-| Player name Text Field | Show Error space are not allowed | clicked on the start button  | spaces are not allowed | Pass |
-| Player name Text Field | player name is required | clicked on the start button  | Player Name is reqired | Pass |
+| The Site link <https://meena-rathi.github.io/quiz_javascript/>| Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
+| Player name Text Field | Questions page appears | Clicked on the start button |  Question is displayed | Pass |
+| Player name Text Field | Error message for disallowed spaces| Clicked on the start button  |Spaces are not allowed | Pass |
+| Player name Text Field |  Player name is required| Clicked on the start button |Player Name is required| Pass |
+| Start | 	Questions appear on screen | Clicked start button | Questions dislpay | Pass |
 
 **Test case2**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
-| Start | Question appear on the screen | after clicked on the start button | Question dislpay | Pass |
-| Question | Next Question should be appear| When the timer out (10 Seconds) in pervious quetsion | New question automatically appear after 10 second time out | Pass |
-|
+| The Site link <https://meena-rathi.github.io/quiz_javascript/>| Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
+| Start | 	Questions appear on screen | Clicked start button | Questions dislpay | Pass |
+| Question | New question should appear | Timer expires (10 Seconds) on the previous question | New question automatically appears after the 10-second timeout | Pass |
 
 **Test case3**
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| The Sites link <https://meena-rathi.github.io/quiz_javascript/>|> Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
-| Start | Question appear on the screen | after clicked on the start button | Question dislpay | Pass |
-| Next | Click to Next button for next Question | When the user select the option with in 10 second | after clicking the next button new quetsion should be appear. | Pass |
-| Counter | Correct or incorrect counter increment on the behald of user selection option | Either user select the correct or incorrect option | Correct or incorrect counter should be increment | Pass |
-| Submit | Result pop should be shows the result | Clicked on the submit button | Result pop up appear appear | Pass |
+| The Site link <https://meena-rathi.github.io/quiz_javascript/>| Link directs the user back to the home page | Clicked link | Home page reloads | Pass |
+| Start | 	Questions appear on screen | Clicked start button | Questions dislpay | Pass |
+| Next |Clicking Next button for new question | Selected option within 10 seconds |New question appears after clicking | Pass |
+| Counter | Increment correct/incorrect counter based on user selection | Selected correct/incorrect option | Counter increments as expected | Pass |
+| Submit | Result popup displays result | Clicked submit button | Result popup appears | Pass |
 
 
 # Fixed Bugs #
@@ -112,6 +111,7 @@ The color scheme for text is primarily orange, red, gray and white.
 | 3 | The CSS alignment was not correct. |  I fixed it by adjusting the styles in the style.css file. |
 | 4 | There was a problem with the counter incrementing when the user changed the option. | I resolved this by ensuring that once the user selects an option, it cannot be changed.|
 | 5 | The submit button was not aligned properly. |  I addressed this by setting the CSS for all devices to ensure proper alignment. |
+| 6 | Unanswered Question Left Problem. | I've configured the display of unanswered questions in the result popup. |
 
 # Supported Screen and browser #
 1. The website is compatible with all devices.

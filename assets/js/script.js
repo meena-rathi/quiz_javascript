@@ -30,8 +30,6 @@ const question = [
 let currentQuestionIndex = 0;
 let selectedAnswers = {};
 let correctCounter = 0;
-
-
 let timer;
 const TIMER_DURATION = 10000;
 /**
@@ -79,10 +77,8 @@ function initializeGame() {
 function startQuiz() {
     startButton.style.display = 'none';
     let playerName = document.getElementById("inputname").value;
-
     let nameError = document.getElementById("nameError");
     let nameErrorspaces = document.getElementById("nameErrorspaces");
-
     if (playerName === "") {
         nameError.style.display = "block";
         nameErrorspaces.style.display = "none";
@@ -96,18 +92,14 @@ function startQuiz() {
     } else {
         let playerNameDisplay = document.getElementById("playerNameDisplay");
         playerNameDisplay.textContent = "Player Name: " + playerName;
-
         const playerInput = document.getElementById("inputname");
         playerInput.style.display = 'none';
-
         let nameError = document.getElementById("nameError");
         nameError.style.display = 'none';
         let nameErrorspaces = document.getElementById("nameErrorspaces");
         nameErrorspaces.style.display = 'none';
-
         const nameLabel = document.querySelector('label[for="inputname"]');
         nameLabel.style.display = 'none';
-
         const scoreArea = document.getElementsByClassName("score-area")[0];
         scoreArea.style.display = 'flex';
         const displayArea = document.getElementsByClassName("display-area")[0];
@@ -116,10 +108,8 @@ function startQuiz() {
         paragraph.style.display = 'none';
         const questions = document.getElementsByClassName("display-question")[0];
         questions.style.display = 'block';
-
         const timercontainer = document.getElementsByClassName("timer-container")[0];
         timercontainer.style.display = 'block';
-
         const heading = document.getElementsByClassName("heading")[0];
         heading.style.display = 'none';
         displayQuestions();
@@ -138,15 +128,12 @@ function startTimer() {
     const timerValue = document.getElementById('timerValue');
     timerValue.textContent = remaining_time;
     let optionSelected = false;
-
     timer = setInterval(function () {
         remaining_time--;
-
         if (remaining_time >= 0) {
             timerValue.textContent = remaining_time;
         } else {
             clearInterval(timer);
-
             if (!optionSelected) {
                 nextQuestion();
             }
@@ -156,7 +143,6 @@ function startTimer() {
         optionSelected = true;
         clearInterval(timer);
     });
-
 }
 /**
  * question and answer fetch from Dictonary question,
@@ -172,9 +158,7 @@ function displayQuestions() {
     questionArea.textContent = currentQuestion.question;
     let options = document.getElementById("options");
     options.innerHTML = '';
-
     let optionSelected = false;
-
     for (let index = 0; index < currentQuestion.option.length; index++) {
         let opt = currentQuestion.option[index];
         let option = document.createElement('label');
@@ -192,14 +176,11 @@ function displayQuestions() {
                     allOptions[i].style.backgroundColor = '';
                 }
                 option.style.backgroundColor = 'orange';
-
                 disableOptionClicks();
             }
         });
-
         options.appendChild(option);
     }
-
     if (currentQuestionIndex === question.length - 1) {
         hideNextButton();
         showSubmitButton();
@@ -314,7 +295,6 @@ function finishQuiz() {
     questionArea.style.display = 'none';
     const submitButton = document.getElementById("submitButton");
     submitButton.style.display = 'none';
-
     const option = document.getElementById("options");
     option.style.display = 'none';
     let playerNameDisplay = document.getElementById("playerNameDisplay");
@@ -366,7 +346,6 @@ function showModal(message, totalQuestions, unansweredQuestions) {
     const modal = document.getElementById('modal');
     const modalMessage = document.getElementById('modal-message');
     modalMessage.innerHTML = message;
-
     const playerName = document.getElementById("playerNameDisplay").textContent;
     const score = document.getElementById("score").textContent;
     const incorrect = document.getElementById("incorrect").textContent;
@@ -378,7 +357,6 @@ function showModal(message, totalQuestions, unansweredQuestions) {
 
     const modalContent = document.querySelector('.modal-content');
     modalContent.innerHTML += playerInfo;
-
     modal.style.display = 'block';
     const scoreDisplay = document.getElementsByClassName("score-area")[0];
     scoreDisplay.style.display = 'block';
@@ -393,16 +371,16 @@ function showModal(message, totalQuestions, unansweredQuestions) {
 
     });
 }
-
+/**
+ * Calculate the unnswered Questions
+ */
 function calculateUnansweredQuestions() {
     let unansweredCount = 0;
-
     for (let i = 0; i < question.length; i++) {
         if (!(i in selectedAnswers)) {
             unansweredCount++;
         }
     }
-
     return unansweredCount;
 }
 
