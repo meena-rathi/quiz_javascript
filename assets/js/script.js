@@ -26,6 +26,7 @@ const question = [
         correctAnswer: 'The + sign'
     },
 ];
+
 let currentQuestionIndex = 0;
 let selectedAnswers = {};
 let correctCounter = 0;
@@ -44,7 +45,6 @@ function onStartBtnMouseOver() {
 function onStartBtnMouseOut() {
     startButton.style.backgroundColor = '';
 }
-
 
 const nextButton = document.getElementById('nextButton');
 
@@ -132,28 +132,32 @@ function startQuiz() {
  * if the timer end in last question result pop appear finishQuiz();
  * user select the option only once  disableOptionClicks();.
  */
+
 function startTimer() {
     let remaining_time = TIMER_DURATION / 1000;
     const timerValue = document.getElementById('timerValue');
     timerValue.textContent = remaining_time;
+    let optionSelected = false;
+
     timer = setInterval(function () {
         remaining_time--;
+
         if (remaining_time >= 0) {
             timerValue.textContent = remaining_time;
-
         } else {
             clearInterval(timer);
-            if (currentQuestionIndex === question.length - 1) {
-                finishQuiz();
 
-            } else {
+            if (!optionSelected) {
                 nextQuestion();
             }
-            disableOptionClicks();
         }
     }, 1000);
-}
+    document.getElementById('options').addEventListener('click', function () {
+        optionSelected = true;
+        clearInterval(timer);
+    });
 
+}
 /**
  * question and answer fetch from Dictonary question,
  * CalleD timer Funtion.
@@ -178,10 +182,6 @@ function displayQuestions() {
         option.classList.add('option');
         option.appendChild(document.createElement('br'));
         option.appendChild(document.createElement('br'));
-
-        // const isSelected = selectedAnswers[currentQuestionIndex] === opt;
-        // const isCorrect = currentQuestion.correctAnswer === opt;
-
         option.addEventListener("click", function () {
             if (!optionSelected) {
                 optionSelected = true;
@@ -237,22 +237,18 @@ function showSubmitButton() {
     document.getElementById('submitButton').style.display = 'block';
 }
 
-
-
+/**
+ * Compare the user's answer with the correct answer and update the score accordingly.
+ *  userAnswer - The user's selected answer.
+ *  correctAnswer - The correct answer for the current question.
+*/
 function compareAnswer(userAnswer, correctAnswer) {
     clearTimeout(timer);
     const options = document.querySelectorAll('.option');
-
     for (let i = 0; i < options.length; i++) {
         const option = options[i];
-
         if (option.textContent === userAnswer) {
             selectedAnswers[currentQuestionIndex] = userAnswer;
-
-            // Optionally, if you want to disable the selected option
-            // option.removeEventListener('click', compareAnswer);
-            // option.style.pointerEvents = 'none';
-
             if (userAnswer === correctAnswer) {
                 incrementScore();
             } else {
@@ -288,8 +284,6 @@ function incrementWrongAnswer() {
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
 }
-
-
 /**
  * This calculate the perctcentage of quiz.
  */
@@ -297,13 +291,16 @@ function calculateScorePercentage() {
     const totalQuestions = question.length;
     const correctAnswers = correctCounter;
     const percentage = (correctAnswers / totalQuestions) * 100;
-    return percentage.toFixed(2);
+    return percentage.toFixed(2); 
 }
 /**
  * when the time ended in last question this function will be called,
  * showModel pop will be called and display the the result.
  */
 function finishQuiz() {
+    const totalQuestions = question.length;
+    const answeredQuestion = currentQuestionIndex + 1;
+    const unansweredQuestions = calculateUnansweredQuestions();
     const finalScore = calculateScorePercentage();
     const scorePercentage = parseFloat(finalScore);
     let message;
@@ -312,7 +309,7 @@ function finishQuiz() {
     } else {
         message = `Good effort! You scored ${finalScore}% in the quiz.`;
     }
-    showModal(message);
+    showModal(message, totalQuestions, unansweredQuestions);
     const questionArea = document.getElementById("question");
     questionArea.style.display = 'none';
     const submitButton = document.getElementById("submitButton");
@@ -333,6 +330,9 @@ function finishQuiz() {
  */
 
 function submitQuiz() {
+    const totalQuestions = question.length;
+    const answeredQuestion = currentQuestionIndex + 1;
+    const unansweredQuestions = calculateUnansweredQuestions();
     const finalScore = calculateScorePercentage();
     const scorePercentage = parseFloat(finalScore);
     let message;
@@ -342,7 +342,7 @@ function submitQuiz() {
         message = `Good effort! You scored ${finalScore}% in the quiz.`;
     }
     clearInterval(timer);
-    showModal(message);
+    showModal(message, totalQuestions, unansweredQuestions);
     const questionArea = document.getElementById("question");
     questionArea.style.display = 'none';
     const questionNumber = document.getElementById("questionNumber");
@@ -351,8 +351,6 @@ function submitQuiz() {
     submitButton.style.display = 'none';
     const option = document.getElementById("options");
     option.style.display = 'none';
-  
-
     let playerNameDisplay = document.getElementById("playerNameDisplay");
     playerNameDisplay.style.display = 'none';
     let scoreArea = document.getElementsByClassName("score-area")[0];
@@ -364,7 +362,7 @@ function submitQuiz() {
  * This function contain player Info and display in popModel,
  */
 
-function showModal(message) {
+function showModal(message, totalQuestions, unansweredQuestions) {
     const modal = document.getElementById('modal');
     const modalMessage = document.getElementById('modal-message');
     modalMessage.innerHTML = message;
@@ -374,7 +372,9 @@ function showModal(message) {
     const incorrect = document.getElementById("incorrect").textContent;
     const playerInfo = `<p>${playerName}</p>
                         <p>Correct Answers: ${score}</p>
-                        <p>Incorrect Answers: ${incorrect}</p>`;
+                        <p>Incorrect Answers: ${incorrect}</p>
+                        <p>Total Questions: ${totalQuestions}</p>
+                        <p>Unanswered Questions: ${unansweredQuestions}</p>`;
 
     const modalContent = document.querySelector('.modal-content');
     modalContent.innerHTML += playerInfo;
@@ -386,8 +386,6 @@ function showModal(message) {
     closeBtn.addEventListener('click', function () {
         modal.style.display = 'none';
     });
-
-    // Close the modal if the user clicks outside the modal content
     window.addEventListener('click', function (event) {
         if (event.target === modal) {
             modal.style.display = 'none';
@@ -395,4 +393,17 @@ function showModal(message) {
 
     });
 }
+
+function calculateUnansweredQuestions() {
+    let unansweredCount = 0;
+
+    for (let i = 0; i < question.length; i++) {
+        if (!(i in selectedAnswers)) {
+            unansweredCount++;
+        }
+    }
+
+    return unansweredCount;
+}
+
 document.addEventListener("DOMContentLoaded", initializeGame);
