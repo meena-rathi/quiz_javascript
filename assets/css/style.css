@@ -42,7 +42,25 @@ h1 {
 .heading {
     display: block;
 }
-
+/* #restartQuiz {
+    width: 120px;
+    background-color: #ac2424;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+} */
+#restartQuiz {
+    width: 120px;
+    background-color: #ac2424;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+}
 .paragraph {
     word-wrap: break-word;
     display: block;

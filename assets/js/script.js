@@ -47,8 +47,8 @@ function onStartBtnMouseOut() {
 const nextButton = document.getElementById('nextButton');
 
 /**
- * This function is changing the color in Next button mouserout and mouseoverit,
- * It set orange color when mouse over and reset when mouse out.
+ * This function is changing the color in Next button mouseout and mouseoverit,
+ * It set orange color when mouse over and reset when mouseout.
  */
 
 function onNextBtnMouseOver() {
@@ -60,7 +60,7 @@ function onNextBtnMouseOut() {
 
 /**
  *  Sets up event listeners for the start and next buttons to trigger hover effects,
- * The both buuton changes the color mouseover and mouseout..
+ * The both buton changes the color mouseover and mouseout.
  */
 function initializeGame() {
     startButton.addEventListener('mouseover', onStartBtnMouseOver);
@@ -70,7 +70,7 @@ function initializeGame() {
 }
 
 /**
- * This funcction Basiclly start the Quiz player Nmae score and timer will be enable,
+ * This funcction Basically start the Quiz player name score and timer will be enable,
  * In this funtion Called the displayQuestion() funtion,questions and option will be appear on the screen.
  */
 
@@ -118,9 +118,9 @@ function startQuiz() {
 
 /**
  * Each question has 10 second time, if user select the option in 10 second then timer will stop and press next button NextQuestion(),
- * If the user didn't select the otion in 10 second after 10 second next question will be appear.
- * if the timer end in last question result pop appear finishQuiz();
- * user select the option only once  disableOptionClicks();.
+ * If the user didn't select the option in 10 seconds, after the 10 seconds next question will be appear.
+ * If the timer end in last question result pop appear finishQuiz();
+ * User select the option only once disableOptionClicks();.
  */
 
 function startTimer() {
@@ -132,23 +132,31 @@ function startTimer() {
         remaining_time--;
         if (remaining_time >= 0) {
             timerValue.textContent = remaining_time;
-        } else {
+        }
+        else if (currentQuestionIndex >= 4)
+        {
             clearInterval(timer);
-            if (!optionSelected) {
+            finishQuiz();
+        }
+        else {
+            clearInterval(timer);
+           if (!optionSelected) {
                 nextQuestion();
             }
         }
+            
     }, 1000);
+    
     document.getElementById('options').addEventListener('click', function () {
         optionSelected = true;
         clearInterval(timer);
     });
 }
 /**
- * question and answer fetch from Dictonary question,
- * CalleD timer Funtion.
- * if the user finish the quiz then next button will be hide and submit button appear;
- * after click submit result pop appear;.
+ * Question and answer fetch from Dictonary question,
+ * Called timer Funtion.
+ * If the user finish the quiz then next button will be hide and submit button appear;
+ * After click the submit result popUp appear;.
  */
 function displayQuestions() {
     startTimer();
@@ -188,7 +196,7 @@ function displayQuestions() {
 }
 
 /**
- * nextQuestion is chaning the question ,
+ * nextQuestion is chaning the questions.
  * 
  */
 
@@ -240,7 +248,7 @@ function compareAnswer(userAnswer, correctAnswer) {
 }
 
 /**
- * Disable the option user can select the option once.
+ * Disable the options, user can select the option only once.
  */
 function disableOptionClicks() {
     let options = document.querySelectorAll('.option');
@@ -251,7 +259,7 @@ function disableOptionClicks() {
 }
 
 /**
- * correct option selection counter will be increment correct.
+ * Correct option selection counter will be incremented correct.
  */
 function incrementScore() {
     correctCounter++;
@@ -259,14 +267,14 @@ function incrementScore() {
 }
 
 /**
- * wrong option seection wrong counter increment.
+ * This function increment the wrong option select counter.
  */
 function incrementWrongAnswer() {
     let oldScore = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldScore;
 }
 /**
- * This calculate the perctcentage of quiz.
+ * This calculate the perctcentage of the quiz.
  */
 function calculateScorePercentage() {
     const totalQuestions = question.length;
@@ -275,7 +283,7 @@ function calculateScorePercentage() {
     return percentage.toFixed(2); 
 }
 /**
- * when the time ended in last question this function will be called,
+ * when the time ended in the last question this function will be called,
  * showModel pop will be called and display the the result.
  */
 function finishQuiz() {
@@ -290,23 +298,28 @@ function finishQuiz() {
     } else {
         message = `Good effort! You scored ${finalScore}% in the quiz.`;
     }
+    clearInterval(timer);
     showModal(message, totalQuestions, unansweredQuestions);
     const questionArea = document.getElementById("question");
     questionArea.style.display = 'none';
+    const questionNumber = document.getElementById("questionNumber");
+    questionNumber.style.display = 'none';
     const submitButton = document.getElementById("submitButton");
     submitButton.style.display = 'none';
     const option = document.getElementById("options");
     option.style.display = 'none';
+    const timerDisplay = document.getElementById("timerDisplay");
+    timerDisplay.style.display = 'none';
     let playerNameDisplay = document.getElementById("playerNameDisplay");
     playerNameDisplay.style.display = 'none';
     let scoreArea = document.getElementsByClassName("score-area")[0];
     scoreArea.style.display = 'none';
-    finishQuiz = function () { };
+    clearInterval(timer);
 }
 
 /**
- *When click on the submit button this function will be called,
- * showModel pop will be called and display the the result.
+ * When click on the submit button this function will be called,
+ * showModel popup will be called and display the the result.
  */
 
 function submitQuiz() {
@@ -331,6 +344,8 @@ function submitQuiz() {
     submitButton.style.display = 'none';
     const option = document.getElementById("options");
     option.style.display = 'none';
+    const timerDisplay = document.getElementById("timerDisplay");
+    timerDisplay.style.display = 'none';
     let playerNameDisplay = document.getElementById("playerNameDisplay");
     playerNameDisplay.style.display = 'none';
     let scoreArea = document.getElementsByClassName("score-area")[0];
